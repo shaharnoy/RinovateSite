@@ -1,0 +1,494 @@
+##### SETS
+set RELATION_TYPES := { 'FREE' , 'SAME' , 'PROTECTED' , 'MUTEX' , 'PARALLEL' };
+set S_tasksites; # set of task sites
+set S_sourcelocation; # set of Crafter source location
+set S := S_tasksites union S_sourcelocation; # set of all S_tasksites and Crafter source location
+set K; # set of tasks
+set M; # set of Crafters
+set R_materials; # set of Materials
+set R_tool; # set of tools
+set R := R_materials union R_tool; # set of resources
+
+check {s in S} length(s) > 0; # no empty value
+check {k in K} length(k) > 0; # no empty value
+check {m in M} length(m) > 0; # no empty value
+check {r in R} length(r) > 0; # no empty value
+check card(S_tasksites inter S_sourcelocation) = 0; # Site and source location must be different
+check card(R_materials inter R_tool) = 0; # each resource is either a Material or a tool
+check card(S union K union M union R) = card(S) + card(K) + card(M) + card(R); # all values are different (safety only)
+
+##### PARAMETERS
+##Time and Dates
+param T_day_start, >=0; # Start Time for a given day
+param T_day_end, >T_day_start; # End Time for a given day
+param U_WORKDAY := T_day_end - T_day_start; # Workday times
+#todo: Add parameter for available days, currently the model assumes it all works in 1 day and all crafters has the same availablity
+##End - Time anxd Dates
+
+##Loaction
+param lat_SITE {s in S}; # latitude coordinates of site s
+param lng_SITE {s in S}; # longitude coordinate of site s
+param D_DEFAULT_GoogleDirections {s1 in S, s2 in S}, >=0 := #todo: populate with data from Google API
+param D {s1 in S, s2 in S}, >=0, default D_DEFAULT_GoogleDirections[s1,s2]; # Distance using Google API and type of commute
+
+param S_start_DEFAULT, symbolic, in S_sourcelocation;
+param S_start {m in M}, symbolic, in S_sourcelocation, default S_start_DEFAULT; # starting position of crafter m is it's homebase
+param S_end_DEFAULT, symbolic, in S_sourcelocation;
+param S_end {m in M}, symbolic, in S_sourcelocation, := S_start[m]; # ending position of crafter m (assuming commute back to start location)
+##End - Loaction
+
+##Task Execution
+param S_task_DEFAULT, symbolic;
+param S_task {k in K}, symbolic, in S_tasksites, default S_task_DEFAULT; # site of task k
+param U_exec_DEFAULT;
+param U_exec_DEFAULT_M {m in M}, default U_exec_DEFAULT;
+param U_exec {k in K, m in M}, >=0, default U_exec_DEFAULT_M[m]; # execution time of task k if done by Crafter m
+##End - Task Execution
+
+##Materials and tools
+param Q_task_DEFAULT;
+param Q_task_DEFAULT_R {r in R}, default Q_task_DEFAULT;
+param Q_task_DEFAULT_R_M {r in R, m in M}, default Q_task_DEFAULT_R[r];
+param Q_task {r in R, k in K, m in M}, >=0, default Q_task_DEFAULT_R_M[r,m]; # amount required of resource r when task k is executed by Crafter m
+param Q_available_DEFAULT;
+param Q_available {r in R}, >=0, default Q_available_DEFAULT; # total available amount of resource r
+##End - Materials and tools
+
+##### Preamble for iterative algorithm
+# this must be set to 1 by a data file to apply the algorithm
+param ALG_USE, binary, default 0;
+
+# this is the only data imported from files
+set ALG_decisions, dimen 3, default {(0,0,0)} diff {(0,0,0)};
+
+check {(k,m,i) in ALG_decisions} (k in K);
+check {(k,m,i) in ALG_decisions} (m in M);
+set ALG_decisions_task_list := setof {(k,m,i) in ALG_decisions} k;
+check card(ALG_decisions_task_list) == card(ALG_decisions);
+set ALG_decisions_job_slot_list := setof {(k,m,i) in ALG_decisions} (m,i);
+check card(ALG_decisions_job_slot_list) == card(ALG_decisions);
+
+set ALG_indices {m in M} := setof {(k,m,i) in ALG_decisions} i;
+check {(k,m,i) in ALG_decisions} (i in (1 .. card(ALG_indices[m])));
+
+param ALG_N {m in M} := card(ALG_indices[m]) + 1;
+param ALG_ITERATION_COUNT := card(ALG_decisions) + 1;
+##### End of preamble
+
+##Task Relations
+set P_UNIVERSE := (setof {k1 in K, k2 in K: k1 != k2} (k1,k2)); # (auxiliary) set of all possible relations
+set P_ALL, within P_UNIVERSE cross RELATION_TYPES; # (auxiliary) set of all relations
+set P_free, within P_UNIVERSE := setof {(k1,k2,'FREE') in P_ALL} (k1,k2); # set of free precedence relations
+set P_same, within P_UNIVERSE := setof {(k1,k2,'SAME') in P_ALL} (k1,k2); # set of same-crafter precedence relations
+set P_prot, within P_UNIVERSE := setof {(k1,k2,'PROTECTED') in P_ALL} (k1,k2); # set of protected precedence relations
+set P_mutex, within P_UNIVERSE := setof {(k1,k2,'MUTEX') in P_ALL} (k1,k2); # set of mutual exclusion relations
+set P_parallel, within P_UNIVERSE := setof {(k1,k2,'PARALLEL') in P_ALL} (k1,k2); # set of parallel execution relations
+set P_prec, within P_UNIVERSE := P_same union P_prot union P_free; # set of all precedence relations
+##End - Task Relations
+
+##### Auxiliary sets
+set J_slots := setof {m in M, i in (1 .. N_crafter_max[m])} (m,i); # (auxiliary) set of all job slots in the model
+set T_slots := setof {m in M, i in (0 .. N_crafter_max[m])} (m,i); # (auxiliary) set of all travelling slots in the model
+set S_slots := setof {m in M, i in (0 .. (N_crafter_max[m] + 1))} (m,i); # (auxiliary) set of all moments where position of a crafter is observed
+
+##### VARIABLES
+var al {k in K, (m,i) in J_slots}, binary; # al[k,m,i] denotes if task k is executed by crafter m on its job slot (m,i)
+var al_task {k in K, m in M}, >=0, <=1; # al_task[k,m] denotes if task k is executed by crafter m on any of its job slots
+var b_present {(m,i) in S_slots, s in S}, >=0, <=1; # b_present[m,i] denotes if crafter m, before its travelling slot (m,i) is present at site s
+var b_sch {(m,i) in T_slots, s1 in S, s2 in S: (s1 != s2)}, >=0, <=1; # b_sch[m,i,s1,s2] denotes if there is move between site s1 and s2 in travelling slot (m,i)
+var b_travel_move {(m,i) in T_slots}, >=0, <=1; # b_travel_move[m,i] denotes if there is actual travelling in travelling slot (m,i) of crafter m (that is, after job slot (m,i-1) and before job slot (m,i), respectively, if these exist)
+var p_close {k in K}, >=0, <=1; # p_close[k] denotes if task k is subject to closing, in some protected precedence relation (k,k2)
+var p_open {k in K}, >=0, <=1; # p_open[k] denotes if task k is subject to opening in some protected precedence relation (k1,k)
+var p_prot {(k1,k2) in P_prot}, binary; # p_prot[k1,k2] denotes if, for the protected precedence relation (k1,k2), closing method is selected, that results in opening and closing sites, rather than waiting for the next crafter to arrive
+var p_mutex {(k1,k2) in P_mutex}, binary; # p_mutex[k1,k2] denotes if the mutual exclusion relation (k1,k2) results in k1 being finished earlier than the starting time of k2
+
+var q_req {r in R, (m,i) in J_slots}, >=0; # q_req[r,m,i] denotes the amount of resource r (either consumable or tool) needed when crafter m performs the task assigned to its ith job slot (m,i)
+var q_carry {r in R, m in M}, >=0; # q_carry[r,m] denotes the amount of resource r (either consumable or tool) picked up by crafter m at the start of the workday, and with which it does all its jobs during the whole day
+var d {(m,i) in T_slots}, >=0; # d[m,i] is the distance travelled at travelling slot (m,i) of crafter m
+var t_travel_start {(m,i) in T_slots}, >=T_day_start, <=T_day_end; # t_travel_start[m,i] is the starting time of travelling slot (m,i) of crafter m
+var t_travel_end {(m,i) in T_slots}, >=T_day_start, <=T_day_end; # t_travel_end[m,i] is the ending time of travelling slot (m,i) of crafter m
+var u_idle {(m,i) in T_slots}, >=0; # u_idle[m,i] is the idle time in travelling slot (m,i) of crafter m
+
+var t_task_presence_start {k in K}, >=T_day_start, <=T_day_end; # t_task_presence_start[k] is the time from which the executing crafter for task k is present at the site
+var t_task_presence_end {k in K}, >=T_day_start, <=T_day_end; # t_task_presence_end[k] is the time until which the executing crafter for task k is present at the site
+var t_task_start {k in K}, >=T_day_start, <=T_day_end; # t_task_start[k] is the time the execution of task k starts
+var t_task_end {k in K}, >=T_day_start, <=T_day_end; # t_task_end[k] is the time the execution of task k ends
+var t_wait_before {k in K}, >=0; # t_wait_before[k] is the duration the crafter executing task k waits before execution
+var t_wait_after {k in K}, >=0; # t_wait_after[k] is the duration the crafter executing task k waits after execution
+var t_slack {k in K}, >=0; # t_slack[k] is the duration of scheduled execution of task k that is not actual work but waiting to the scheduled ending
+
+var time_total; # sum of all time, objective candidate
+
+param PRESET_al {k in K, (m,i) in J_slots}, in {-1,0,1}, default (-1);
+	# presetting binary variables
+
+### Implementation of iterative algorithm (extra constraints and decisions).
+
+set ALG_tasks_done, within K := setof {(k,m,i) in ALG_decisions} k;
+set ALG_tasks_remaining, within K := K diff ALG_tasks_done;
+
+var alg_select_crafter {m in M: (ALG_USE == 1)}, binary;
+var alg_select_task {k in ALG_tasks_remaining: (ALG_USE == 1)}, binary;
+var alg_select_task_slot {(m,i) in J_slots: (ALG_USE == 1)}, binary;
+var alg_inselect {(m,i) in T_slots: (ALG_USE == 1)}, >=0, <=1;
+var alg_task {k in ALG_tasks_remaining, (m,i) in J_slots: (ALG_USE == 1)}, >=0, <=1;
+
+
+##### CONSTRAINTS
+###Algo
+s.t. CALG_1_01 {m in M: (ALG_USE == 1)}: alg_inselect[m,0] = 0;
+s.t. CALG_1_02 {(m,i) in J_slots: (ALG_USE == 1)}: alg_inselect[m,i] >= alg_inselect[m,i-1];
+s.t. CALG_1_03 {(m,i) in J_slots: (ALG_USE == 1)}: alg_inselect[m,i] >= alg_select_task_slot[m,i];
+s.t. CALG_1_04 {(m,i) in J_slots: (ALG_USE == 1)}: alg_inselect[m,i] <= alg_inselect[m,i-1] + alg_select_task_slot[m,i];
+
+s.t. CALG_2_01 {(m,i) in J_slots: (ALG_USE == 1)}: alg_select_crafter[m] >= alg_inselect[m,i];
+
+s.t. CALG_3_01 {k in ALG_tasks_remaining, (m,i) in J_slots: (ALG_USE == 1)}: alg_task[k,m,i] <= alg_select_task[k];
+s.t. CALG_3_02 {k in ALG_tasks_remaining, (m,i) in J_slots: (ALG_USE == 1)}: alg_task[k,m,i] <= alg_select_task_slot[m,i];
+s.t. CALG_3_03 {k in ALG_tasks_remaining, (m,i) in J_slots: (ALG_USE == 1)}: alg_task[k,m,i] >= alg_select_task[k] + alg_select_task_slot[m,i] - 1;
+s.t. CALG_3_04 {k in ALG_tasks_remaining, (m,i) in J_slots: (ALG_USE == 1)}: al[k,m,i] = alg_task[k,m,i];
+
+s.t. CALG_4_01 {(k,m,i) in ALG_decisions, j in (1 .. ALG_N[m]): ((j != i) && (j != i+1)) && (ALG_USE == 1)}: al[k,m,j] = 0;
+
+s.t. CALG_5_01 {k in ALG_tasks_done: (ALG_USE == 1)}: sum {m in M} al_task[k,m] = 1;
+s.t. CALG_5_02 {k in ALG_tasks_remaining: (ALG_USE == 1)}: sum {m in M} al_task[k,m] = alg_select_task[k];
+
+s.t. CALG_6_01 {(dummy,ALG_USE) in {(1,1)}}: sum {m in M} alg_select_crafter[m] = 1;
+s.t. CALG_6_02 {(dummy,ALG_USE) in {(1,1)}}: sum {k in ALG_tasks_remaining} alg_select_task[k] = 1;
+s.t. CALG_6_03 {(dummy,ALG_USE) in {(1,1)}}: sum {(m,i) in J_slots} alg_select_task_slot[m,i] = 1;
+
+s.t. CALG_7_01 {(k,m,i) in ALG_decisions: (ALG_USE == 1)}: alg_inselect[m,i] = al[k,m,i+1];
+s.t. CALG_7_02 {(k,m,i) in ALG_decisions: (ALG_USE == 1)}: (1 - alg_inselect[m,i]) = al[k,m,i];
+
+### Presetting variables
+s.t. C_PRESETS {k in K, (m,i) in J_slots: PRESET_al[k,m,i] != (-1)}: al[k,m,i] = PRESET_al[k,m,i];
+	# presetting binary variables
+
+### Task assignment
+s.t. C01 {k in K, m in M}: al_task[k,m] = sum {(m,i) in J_slots} al[k,m,i];
+	# a task is executed by a crafter m and it is assigned to a job slot (m,i) of crafter m
+s.t. C02 {k in K: ALG_USE == 0}: 1 = sum {m in M} al_task[k,m];
+	# all tasks must be executed by exactly one crafter m
+
+##Position of teams
+s.t. C03 {(m,i) in J_slots: (i > 1)}: sum {k in K} al[k,m,i-1] >= sum {k in K} al[k,m,i];
+	# job slots must be used in strict order: no job slot can be skipped if the next one is used
+s.t. C04 {(m,i) in S_slots, s in S_sourcelocation: (s == S_start[m]) && (i == 0)}: b_present[m,i,s] = 1;
+	# Crafters are at their starting sites in the beginning
+s.t. C05 {(m,i) in S_slots, s in S_sourcelocation: (s == S_end[m]) && (i == N_crafter_max[m] + 1)}: b_present[m,i,s] = 1;
+	# Crafters are at their ending sites in the end
+s.t. C06 {(m,i) in J_slots, s in S_tasksites}: b_present[m,i,s] = sum {k in K: S_task[k] == s} al[k,m,i];
+	# a crafter is on a task site if and only if it is executing a job slot at that point
+s.t. C07 {(m,i) in S_slots}: sum {s in (S_tasksites union {S_start[m]} union {S_end[m]})} b_present[m,i,s] = 1;
+	# a crafter, at any slot endpoint, is at exactly one site given that S_start[m] = S_end[m], otherwise rule should change
+
+### Travelling
+s.t. C08 {(m,i) in T_slots, s1 in S, s2 in S: (s1 != s2)}: b_sch[m,i,s1,s2] >= b_present[m,i,s1] + b_present[m,i+1,s2] - 1;
+	# movement in travelling slot (m,i) of crafter m is performed between sites s1 and s2 if m was at site s1 before and at site s2 after the travelling slot
+s.t. C09 {(m,i) in T_slots}: b_travel_move[m,i] = sum {s1 in S, s2 in S: (s1 != s2)} b_sch[m,i,s1,s2];
+	# movement occurs in travelling slot (m,i) of crafter m if there is a movement there between some sites s1 and s2
+s.t. C10 {(m,i) in T_slots}: d[m,i] = sum {s1 in S, s2 in S: (s1 != s2)} b_sch[m,i,s1,s2] * D[s1,s2];
+	# amount d[m,i] moved in travelling slot (m,i) of crafter m, is calculated by the distance of the two sites s1 and s2 between which the movement occurs
+s.t. C11 {(m,i) in J_slots}: t_travel_start[m,i] >= t_travel_end[m,i-1];
+	# travelling slots must come after each other
+s.t. C12 {(m,i) in T_slots}: t_travel_end[m,i] - t_travel_start[m,i] = d[m,i] + u_idle[m,i] + b_travel_move[m,i];
+	# a travelling slot is composed of idle time and actual travelling based on distance and crafter speed
+
+### Execution
+# Job slot sequencing
+s.t. C16a {k in K, (m,i) in J_slots}: t_task_presence_start[k] - t_travel_end[m,i-1] >= (-1) * U_WORKDAY * (1 - al[k,m,i]);
+s.t. C16b {k in K, (m,i) in J_slots}: t_task_presence_start[k] - t_travel_end[m,i-1] <= (+1) * U_WORKDAY * (1 - al[k,m,i]);
+	# if a task is executed in job slot (m,i) of crafter m, then the start of presence at task k coincides with the start of job slot (m,i)
+s.t. C17 {k in K}: t_task_presence_start[k] + t_wait_before[k] + p_open[k] = t_task_start[k];
+	# presence is followed by waiting and opening times until the task execution starts
+s.t. C18 {k in K}: t_task_start[k] + sum {m in M} al_task[k,m] * U_exec[k,m] + t_slack[k] = t_task_end[k];
+	# task execution is based on crafter selected, plus possible slack until the scheduled end
+s.t. C19 {k in K}: t_task_end[k] + p_close[k] + t_wait_after[k] = t_task_presence_end[k];
+	# after finishing task execution, closing and waiting times may take place until the end of presence at task k
+s.t. C20a {k in K, (m,i) in J_slots}: t_task_presence_end[k] - t_travel_start[m,i] >= (-1) * U_WORKDAY * (1 - al[k,m,i]);
+s.t. C20b {k in K, (m,i) in J_slots}: t_task_presence_end[k] - t_travel_start[m,i] <= (+1) * U_WORKDAY * (1 - al[k,m,i]);
+	# if a task is executed in job slot (m,i) of crafter m, then the end of presence at task k coincides with the end of job slot (m,i)
+
+### Resources
+s.t. C25 {r in R, (m,i) in J_slots}: q_req[r,m,i] = sum {k in K} Q_task[r,k,m] * al[k,m,i];
+	# required amount of resource r (either consumable or tool) for job slot (m,i) depends on the executed task
+s.t. C26 {r in R_materials, m in M}: q_carry[r,m] = sum {(m,i) in J_slots} q_req[r,m,i];
+	# required amount of consumable resource r for a crafter m on its journey is the sum of needs for all its job slots
+s.t. C27 {r in R_tool, (m,i) in J_slots}: q_carry[r,m] >= q_req[r,m,i];
+	# required amount of tool resource r for a crafter m on its journey is the maximum of needs for all its job slots
+s.t. C29 {r in R}: sum {m in M} q_carry[r,m] <= Q_available[r];
+	# total amount of a resource carried by Crafters is limited for each resource r (either consumable or renewable)
+
+### Relations
+# Precedence
+s.t. C30 {(k1,k2) in P_prec}: t_task_end[k1] <= t_task_start[k2];
+	# for all precedence relations, the second task may start after the first one is finished
+s.t. C31 {(k1,k2) in P_same, m in M}: al_task[k1,m] = al_task[k2,m];
+	# for all same type relations, the tasks must be assigned to job slots of the same crafter
+
+# Protected precedence
+s.t. C32 {(k1,k2) in P_prot}: t_task_presence_start[k2] - t_task_presence_end[k1] <= (+1) * U_WORKDAY * p_prot[k1,k2];
+	# for a protected precedence relation, if not the closing method is applied, then task presences must meet
+s.t. C33 {(k1,k2) in P_prot}: p_close[k1] >= p_prot[k1,k2];
+	# for a protected precedence relation, if the closing method is applied then closing must take place at the site of the first task
+s.t. C34 {(k1,k2) in P_prot}: p_open[k2] >= p_prot[k1,k2];
+	# for a protected precedence relation, if the closing method is applied then opening must take place at the site of the second task
+s.t. C35 {k1 in K}: p_close[k1] <= sum {(k1,k2) in P_prot} p_prot[k1,k2];
+	# there is closing at a task only if it is subject to one protected precedence relation where the closing method is applied
+s.t. C36 {k2 in K}: p_open[k2] <= sum {(k1,k2) in P_prot} p_prot[k1,k2];
+	# there is opening at a task only if it is subject to one protected precedence relation where the closing method is applied
+
+# Mutual exclusion
+s.t. C37 {(k1,k2) in P_mutex}: t_task_start[k2] - t_task_end[k1] >= (-1) * U_WORKDAY * (1 - p_mutex[k1,k2]);
+	# for any mutex, if the decision variable is one, then the first task must end before the second task may start
+s.t. C38 {(k1,k2) in P_mutex}: t_task_start[k1] - t_task_end[k2] >= (-1) * U_WORKDAY * p_mutex[k1,k2];
+	# for any mutex, if the decision variable is zero, then the second task must end before the first task may start
+
+# Parallel execution
+s.t. C39 {(k1,k2) in P_parallel}: t_task_start[k1] = t_task_start[k2];
+	# for parallel execution relations, tasks' starting times coincide
+s.t. C40 {(k1,k2) in P_parallel}: t_task_end[k1] = t_task_end[k2];
+	# for parallel execution relations, tasks' ending times coincide
+
+### Time aggeregations
+s.t. C41: time_travelling = sum {(m,i) in T_slots} (d[m,i]);
+	# travelling time based on travelled distances across all travelling slots
+s.t. C44: time_execution = sum {k in K, m in M} (al_task[k,m]);
+	# execution time is based solely on job slot assignment
+s.t. C46: time_open_close = sum {(k1,k2) in P_prot} (p_prot[k1,k2]);
+	# opening and closing times are based on whether the closing method is applied in each protected precedence relation
+s.t. C47: time_work = sum {m in M} ((t_travel_end[m,N_crafter_max[m]] - t_travel_start[m,0]));
+	# working time costs are based on the total time Crafters spent in labour, including travelling, waiting and being idle
+
+s.t. C48: time_total = time_travelling + time_execution + time_open_close + time_work;
+	# total time is the sum of all components
+
+minimize OBJ: time_total;
+
+solve;
+
+param ALG_STOP := (if (card(K) == sum {k in K, (m,i) in J_slots: al[k,m,i] > 1 - 1e-9} 1) then (1) else (0));
+
+### Printing schedule in readable format
+param SCHEDULING_TABLE_FILE, symbolic;
+
+printf "DATA.\n";
+printf "FINAL OBJECTIVE = '%f'\n", OBJ;
+
+for {(dummy_print_schedtables,ALG_STOP) in {(1,1)}}
+{
+
+	printf "START OF SCHEDULING TABLES.\n";
+
+	printf "" > SCHEDULING_TABLE_FILE;
+	for {m in M}:
+	{
+		printf "Msg\tSite\tFrom\tTo\tAction of crafter %s", m >> SCHEDULING_TABLE_FILE;
+		printf "\tTravel\tWindows\tExecution\tResource\tOpen/close\tWorktime\n" >> SCHEDULING_TABLE_FILE;
+		for {_ in {0}: b_travel_move[m,0] > 1 - 1e-9}
+		{
+			printf "I1\t" >> SCHEDULING_TABLE_FILE;
+			for {s in S: b_present[m,0,s] > 1e-9} { printf "%s\t", s >> SCHEDULING_TABLE_FILE; }
+			for {s1 in S, s2 in S: (s1 != s2) && b_sch[m,0,s1,s2] > 1 - 1e-9} { printf "Move from %s to %s (%.2f km).", s1, s2, d[m,0] >> SCHEDULING_TABLE_FILE; }
+			for {__ in {0}: u_idle[m,0] > 1e-9}
+			{
+				printf "I2\t" >> SCHEDULING_TABLE_FILE;
+				for {s in S: b_present[m,1,s] > 1e-9} { printf "%s\t", s >> SCHEDULING_TABLE_FILE; }
+				for {num in {u_idle[m,0]}} { printf "Free time for %d minutes.", floor(num * 60 + 1e-9) >> SCHEDULING_TABLE_FILE; }
+			}
+
+		}
+		for {_ in {0}: b_travel_move[m,0] < 1e-9}
+		{
+			for {__ in {0}: u_idle[m,0] > 1e-9}
+			{
+				printf "I5\t" >> SCHEDULING_TABLE_FILE;
+				for {s in S: b_present[m,0,s] > 1e-9} { printf "%s\t", s >> SCHEDULING_TABLE_FILE; }
+				for {nf in {t_travel_start[m,0]}, nt in {t_travel_end[m,0]}}
+					{ printf "%02d:%02d\t%02d:%02d\t", floor(nf + 1e-9), floor((nf * 60 + 1e-9) mod 60), floor(nt + 1e-9), floor((nt * 60 + 1e-9) mod 60) >> SCHEDULING_TABLE_FILE; }
+				for {num in {u_idle[m,0]}} { printf "Free time for %d minutes.", floor(num * 60 + 1e-9) >> SCHEDULING_TABLE_FILE; }
+			}
+		}
+		for {(m,i) in J_slots}
+		{
+			for {k in K: al[k,m,i] > 1 - 1e-9}
+			{
+				for {_ in {0}: t_wait_before[k] > 1e-9}
+				{
+					printf "K1\t" >> SCHEDULING_TABLE_FILE;
+					for {s in S: b_present[m,i,s] > 1e-9} { printf "%s\t", s >> SCHEDULING_TABLE_FILE; }
+					for {nf in {t_task_presence_start[k]}, nt in {t_task_presence_start[k] + t_wait_before[k]}}
+						{ printf "%02d:%02d\t%02d:%02d\t", floor(nf + 1e-9), floor((nf * 60 + 1e-9) mod 60), floor(nt + 1e-9), floor((nt * 60 + 1e-9) mod 60) >> SCHEDULING_TABLE_FILE; }
+					for {num in {t_wait_before[k]}} { printf "Wait for %d minutes before execution.", floor(num * 60 + 1e-9) >> SCHEDULING_TABLE_FILE; }
+				}
+				for {_ in {0}: p_open[k]}
+				{
+					printf "K2\t" >> SCHEDULING_TABLE_FILE;
+					for {s in S: b_present[m,i,s] > 1e-9} { printf "%s\t", s >> SCHEDULING_TABLE_FILE; }
+					for {nf in {t_task_presence_start[k] + t_wait_before[k]}, nt in {t_task_presence_start[k] + t_wait_before[k]}}
+						{ printf "%02d:%02d\t%02d:%02d\t", floor(nf + 1e-9), floor((nf * 60 + 1e-9) mod 60), floor(nt + 1e-9), floor((nt * 60 + 1e-9) mod 60) >> SCHEDULING_TABLE_FILE; }
+					printf "Open task site." >> SCHEDULING_TABLE_FILE;
+				}
+				for {_ in {0}}
+				{
+					printf "K3\t" >> SCHEDULING_TABLE_FILE;
+					for {s in S: b_present[m,i,s] > 1e-9} { printf "%s\t", s >> SCHEDULING_TABLE_FILE; }
+					for {nf in {t_task_start[k]}, nt in {t_task_end[k] - t_slack[k]}}
+						{ printf "%02d:%02d\t%02d:%02d\t", floor(nf + 1e-9), floor((nf * 60 + 1e-9) mod 60), floor(nt + 1e-9), floor((nt * 60 + 1e-9) mod 60) >> SCHEDULING_TABLE_FILE; }
+					printf "Execute task %s.", k >> SCHEDULING_TABLE_FILE;
+					for {k2 in K: (k,k2) in P_parallel || (k2,k) in P_parallel}
+					{
+						printf " (Parallel with %s.)", k2 >> SCHEDULING_TABLE_FILE;
+					}
+				}
+				for {_ in {0}: t_slack[k] > 1e-9}
+				{
+					printf "K4\t" >> SCHEDULING_TABLE_FILE;
+					for {s in S: b_present[m,i,s] > 1e-9} { printf "%s\t", s >> SCHEDULING_TABLE_FILE; }
+					for {nf in {t_task_end[k] - t_slack[k]}, nt in {t_task_end[k]}}
+						{ printf "%02d:%02d\t%02d:%02d\t", floor(nf + 1e-9), floor((nf * 60 + 1e-9) mod 60), floor(nt + 1e-9), floor((nt * 60 + 1e-9) mod 60) >> SCHEDULING_TABLE_FILE; }
+					for {num in {t_slack[k]}} { printf "Prolong execution by %d minutes.", floor(num * 60 + 1e-9) >> SCHEDULING_TABLE_FILE; }
+				}
+				for {_ in {0}: p_close[k]}
+				{
+					printf "K5\t" >> SCHEDULING_TABLE_FILE;
+					for {s in S: b_present[m,i,s] > 1e-9} { printf "%s\t", s >> SCHEDULING_TABLE_FILE; }
+					for {nf in {t_task_presence_end[k] - t_wait_after[k]}, nt in {t_task_presence_end[k] - t_wait_after[k]}}
+						{ printf "%02d:%02d\t%02d:%02d\t", floor(nf + 1e-9), floor((nf * 60 + 1e-9) mod 60), floor(nt + 1e-9), floor((nt * 60 + 1e-9) mod 60) >> SCHEDULING_TABLE_FILE; }
+					printf "Close task site." >> SCHEDULING_TABLE_FILE;
+				}
+				for {_ in {0}: t_wait_after[k] > 1e-9}
+				{
+					printf "K6\t" >> SCHEDULING_TABLE_FILE;
+					for {s in S: b_present[m,i,s] > 1e-9} { printf "%s\t", s >> SCHEDULING_TABLE_FILE; }
+					for {nf in {t_task_presence_end[k] - t_wait_after[k]}, nt in {t_task_presence_end[k]}}
+						{ printf "%02d:%02d\t%02d:%02d\t", floor(nf + 1e-9), floor((nf * 60 + 1e-9) mod 60), floor(nt + 1e-9), floor((nt * 60 + 1e-9) mod 60) >> SCHEDULING_TABLE_FILE; }
+					for {num in {t_wait_after[k]}} { printf "Wait for %d minutes after execution.", floor(num * 60 + 1e-9) >> SCHEDULING_TABLE_FILE; }
+				}
+			}
+
+			for {_ in {0}: b_travel_move[m,i] > 1 - 1e-9}
+			{
+				printf "T2\t" >> SCHEDULING_TABLE_FILE;
+				for {s in S: b_present[m,i,s] > 1e-9} { printf "%s\t", s >> SCHEDULING_TABLE_FILE; }
+				for {s1 in S, s2 in S: (s1 != s2) && b_sch[m,i,s1,s2] > 1 - 1e-9} { printf "Move from %s to %s (%.2f km).", s1, s2, d[m,i] >> SCHEDULING_TABLE_FILE; }
+
+				for {__ in {0}: u_idle[m,i] > 1e-9}
+				{
+					printf "T3\t" >> SCHEDULING_TABLE_FILE;
+					for {s in S: b_present[m,i+1,s] > 1e-9} { printf "%s\t", s >> SCHEDULING_TABLE_FILE; }
+					for {num in {u_idle[m,i]}} { printf "Free time for %d minutes.", floor(num * 60 + 1e-9) >> SCHEDULING_TABLE_FILE; }
+				}
+
+			}
+			for {_ in {0}: b_travel_move[m,i] < 1e-9}
+			{
+				for {__ in {0}: u_idle[m,i] > 1e-9}
+				{
+					printf "T5\t" >> SCHEDULING_TABLE_FILE;
+					for {s in S: b_present[m,i,s] > 1e-9} { printf "%s\t", s >> SCHEDULING_TABLE_FILE; }
+					for {nf in {t_travel_start[m,i]}, nt in {t_travel_end[m,i]}}
+						{ printf "%02d:%02d\t%02d:%02d\t", floor(nf + 1e-9), floor((nf * 60 + 1e-9) mod 60), floor(nt + 1e-9), floor((nt * 60 + 1e-9) mod 60) >> SCHEDULING_TABLE_FILE; }
+					for {num in {u_idle[m,i]}} { printf "Free time for %d minutes.", floor(num * 60 + 1e-9) >> SCHEDULING_TABLE_FILE; }
+				}
+			}
+		}
+	}
+	printf "\t\t\t\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\t%.2f\n", time_total, time_travelling, time_execution, time_open_close, time_work >> SCHEDULING_TABLE_FILE;
+	printf "END OF SCHEDULING TABLES.\n";
+
+	printf "SCHEDULING: ALLOCATION.\n";
+	for {m in M}
+	{
+		for {(m,i) in J_slots}
+		{
+			for {k in K: al[k,m,i] > 1 - 1e-9}
+			{
+				printf "\t%s %d => %s\n", m, i, k;
+			}
+			for {_ in {0}: sum {k in K} al[k,m,i] < 1e-9}
+			{
+				printf "\t%s %d remains empty\n", m, i;
+			}
+		}
+	}
+	printf "END OF SCHEDULING: ALLOCATION.\n";
+
+	printf "SCHEDULING: PROTECTED PRECEDENCES.\n";
+	for {(k1,k2) in P_prot}
+	{
+		for {(m1,i1) in J_slots, (m2,i2) in J_slots: (al[k1,m1,i1] > 1 - 1e-9) && (al[k2,m2,i2] > 1 - 1e-9)}
+		{
+			for {(id,text) in {(0,'waiting'),(1,'closing/opening')}: abs(p_prot[k1,k2] - id) < 1e-9}
+			{
+				printf "\t%s (%s,%d) followed by %s (%s,%d), %s\n", k1, m1, i1, k2, m2, i2, text;
+			}
+		}
+	}
+	printf "END OF SCHEDULING: PROTECTED PRECEDENCES.\n";
+
+	printf "SCHEDULING: MUTUAL EXCLUSIONS.\n";
+	for {(k1,k2) in P_mutex}
+	{
+		for {(m1,i1) in J_slots, (m2,i2) in J_slots: (al[k1,m1,i1] > 1 - 1e-9) && (al[k2,m2,i2] > 1 - 1e-9)}
+		{
+			for {_ in {0}: p_mutex[k1,k2] > 1 - 1e-9}
+			{
+				printf "\t%s (%s,%d) followed by %s (%s,%d)\n", k1, m1, i1, k2, m2, i2;
+			}
+			for {_ in {0}: p_mutex[k1,k2] < 1e-9}
+			{
+				printf "\t%s (%s,%d) preceded by %s (%s,%d)\n", k1, m1, i1, k2, m2, i2;
+			}
+		}
+	}
+	printf "END OF SCHEDULING: MUTUAL EXCLUSIONS.\n";
+
+	for {(_,0) in {(1,1)}}
+	{
+		printf "SCHEDULING: FAST DEBUG MESSAGES.\n";
+		for {(m,i) in J_slots, k in K: al[k,m,i] > 1 - 1e-9}
+		{
+			printf "(%s,%s,%s)\n", k, m, i;
+		}
+		for {(m,i) in T_slots, s1 in S, s2 in S: (s1 != s2) && b_sch[m,i,s1,s2] > 1 - 1e-9}
+		{
+			printf "[%s,%s,%s,%s]\n", m, i, s1, s2;
+		}
+		for {(m,i) in S_slots, s in S: b_present[m,i,s] > 1 - 1e-9}
+		{
+			printf "{%s,%s,%s}\n", m, i, s;
+		}
+		for {(m,i) in T_slots: b_travel_move[m,i] > 1 - 1e-9}
+		{
+			printf "{{%s,%s}}\n", m, i;
+		}
+		printf "END OF SCHEDULING: FAST DEBUG MESSAGES.\n";
+	}
+}
+
+param RWNFILE_PREFIX, symbolic, default "res-it";
+param RWNFILE, symbolic, default (RWNFILE_PREFIX & "-" & ALG_ITERATION_COUNT & ".dat");
+
+for {(dummy_print_rwnfile,ALG_USE) in {(1,1)}}
+{
+	printf "ALGORITHM NEXT STEP WRITING SECTION.\n";
+	printf "" > RWNFILE;
+	printf "# Algorithm STEP file.\n\n" >> RWNFILE;
+	printf "# Generated automatically by:\n" >> RWNFILE;
+	printf "# Mobile Workforce Management model.\n" >> RWNFILE;
+	printf "# GNU MathProg implementation.\n" >> RWNFILE;
+	printf "# RWNFILE_PREFIX='%s' '%s'\n", RWNFILE_PREFIX, RWNFILE >> RWNFILE;
+	printf "\ndata;\n\n" >> RWNFILE;
+	printf "set ALG_decisions :=\n" >> RWNFILE;
+	for {k in K, (m,i) in J_slots: (al[k,m,i] >= 1 - 1e-9)}
+	{
+		printf "\t%s\t%s\t%d\n", k, m, i >> RWNFILE;
+	}
+	printf "\t;\n" >> RWNFILE;
+	printf "\n# ITERATIVE ALGORITHM %s\n", (if (ALG_STOP == 1) then ("STOP") else ("CONTINUE"))>> RWNFILE;
+	printf "\nend;\n" >> RWNFILE;
+
+	printf "END: ALGORITHM NEXT STEP WRITING SECTION.\n";
+}
+end;

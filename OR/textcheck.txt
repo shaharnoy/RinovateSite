@@ -1,0 +1,697 @@
+21 Set Declarations
+    C31_index : Size=1, Index=None, Ordered=True
+        Key  : Dimen : Domain   : Size : Members
+        None :     3 : P_same*M :    4 : {('K3', 'K4', 'GW'), ('K3', 'K4', 'EL'), ('K6', 'K7', 'GW'), ('K6', 'K7', 'EL')}
+    C32_index : Size=1, Index=None, Ordered=True
+        Key  : Dimen : Domain   : Size : Members
+        None :     3 : P_prot*M :    6 : {('K1a', 'K1b', 'GW'), ('K1a', 'K1b', 'EL'), ('K1b', 'K1c', 'GW'), ('K1b', 'K1c', 'EL'), ('K1c', 'K1d', 'GW'), ('K1c', 'K1d', 'EL')}
+    C37_index : Size=1, Index=None, Ordered=True
+        Key  : Dimen : Domain    : Size : Members
+        None :     3 : P_mutex*M :    4 : {('K1a', 'K2a', 'GW'), ('K1a', 'K2a', 'EL'), ('K1a', 'K3', 'GW'), ('K1a', 'K3', 'EL')}
+    C38_index : Size=1, Index=None, Ordered=True
+        Key  : Dimen : Domain    : Size : Members
+        None :     3 : P_mutex*M :    4 : {('K1a', 'K2a', 'GW'), ('K1a', 'K2a', 'EL'), ('K1a', 'K3', 'GW'), ('K1a', 'K3', 'EL')}
+    J_slots : Size=1, Index=None, Ordered=Insertion
+        Key  : Dimen : Domain : Size : Members
+        None :     2 :    Any :   26 : {('GW', 1), ('GW', 2), ('GW', 3), ('GW', 4), ('GW', 5), ('GW', 6), ('GW', 7), ('GW', 8), ('GW', 9), ('GW', 10), ('GW', 11), ('GW', 12), ('GW', 13), ('GW', 14), ('GW', 15), ('GW', 16), ('EL', 1), ('EL', 2), ('EL', 3), ('EL', 4), ('EL', 5), ('EL', 6), ('EL', 7), ('EL', 8), ('EL', 9), ('EL', 10)}
+    K : Size=1, Index=None, Ordered=Insertion
+        Key  : Dimen : Domain : Size : Members
+        None :     1 :    Any :   14 : {'K1a', 'K1b', 'K1c', 'K1d', 'K2a', 'K2b', 'K3', 'K4', 'K5', 'K6', 'K6a', 'K6b', 'K6c', 'K7'}
+    M : Size=1, Index=None, Ordered=Insertion
+        Key  : Dimen : Domain : Size : Members
+        None :     1 :    Any :    2 : {'GW', 'EL'}
+    P_ALL : Size=1, Index=None, Ordered=Insertion
+        Key  : Dimen : Domain       : Size : Members
+        None :     3 : P_ALL_domain :   12 : {('K1a', 'K1b', 'PROTECTED'), ('K1b', 'K1c', 'PROTECTED'), ('K1c', 'K1d', 'PROTECTED'), ('K1a', 'K2a', 'MUTEX'), ('K1a', 'K3', 'MUTEX'), ('K3', 'K4', 'SAME'), ('K4', 'K5', 'FREE'), ('K5', 'K6', 'FREE'), ('K6', 'K6a', 'PARALLEL'), ('K6', 'K6b', 'PARALLEL'), ('K6', 'K6c', 'PARALLEL'), ('K6', 'K7', 'SAME')}
+    P_ALL_domain : Size=1, Index=None, Ordered=True
+        Key  : Dimen : Domain                   : Size : Members
+        None :     3 : P_UNIVERSE*RelationTypes :  910 : {('K1a', 'K1b', 'FREE'), ('K1a', 'K1b', 'SAME'), ('K1a', 'K1b', 'PROTECTED'), ('K1a', 'K1b', 'MUTEX'), ('K1a', 'K1b', 'PARALLEL'), ('K1a', 'K1c', 'FREE'), ('K1a', 'K1c', 'SAME'), ('K1a', 'K1c', 'PROTECTED'), ('K1a', 'K1c', 'MUTEX'), ('K1a', 'K1c', 'PARALLEL'), ('K1a', 'K1d', 'FREE'), ('K1a', 'K1d', 'SAME'), ('K1a', 'K1d', 'PROTECTED'), ('K1a', 'K1d', 'MUTEX'), ('K1a', 'K1d', 'PARALLEL'), ('K1a', 'K2a', 'FREE'), ('K1a', 'K2a', 'SAME'), ('K1a', 'K2a', 'PROTECTED'), ('K1a', 'K2a', 'MUTEX'), ('K1a', 'K2a', 'PARALLEL'), ('K1a', 'K2b', 'FREE'), ('K1a', 'K2b', 'SAME'), ('K1a', 'K2b', 'PROTECTED'), ('K1a', 'K2b', 'MUTEX'), ('K1a', 'K2b', 'PARALLEL'), ('K1a', 'K3', 'FREE'), ('K1a', 'K3', 'SAME'), ('K1a', 'K3', 'PROTECTED'), ('K1a', 'K3', 'MUTEX'), ('K1a', 'K3', 'PARALLEL'), ('K1a', 'K4', 'FREE'), ('K1a', 'K4', 'SAME'), ('K1a', 'K4', 'PROTECTED'), ('K1a', 'K4', 'MUTEX'), ('K1a', 'K4', 'PARALLEL'), ('K1a', 'K5', 'FREE'), ('K1a', 'K5', 'SAME'), ('K1a', 'K5', 'PROTECTED'), ('K1a', 'K5', 'MUTEX'), ('K1a', 'K5', 'PARALLEL'), ('K1a', 'K6', 'FREE'), ('K1a', 'K6', 'SAME'), ('K1a', 'K6', 'PROTECTED'), ('K1a', 'K6', 'MUTEX'), ('K1a', 'K6', 'PARALLEL'), ('K1a', 'K6a', 'FREE'), ('K1a', 'K6a', 'SAME'), ('K1a', 'K6a', 'PROTECTED'), ('K1a', 'K6a', 'MUTEX'), ('K1a', 'K6a', 'PARALLEL'), ('K1a', 'K6b', 'FREE'), ('K1a', 'K6b', 'SAME'), ('K1a', 'K6b', 'PROTECTED'), ('K1a', 'K6b', 'MUTEX'), ('K1a', 'K6b', 'PARALLEL'), ('K1a', 'K6c', 'FREE'), ('K1a', 'K6c', 'SAME'), ('K1a', 'K6c', 'PROTECTED'), ('K1a', 'K6c', 'MUTEX'), ('K1a', 'K6c', 'PARALLEL'), ('K1a', 'K7', 'FREE'), ('K1a', 'K7', 'SAME'), ('K1a', 'K7', 'PROTECTED'), ('K1a', 'K7', 'MUTEX'), ('K1a', 'K7', 'PARALLEL'), ('K1b', 'K1a', 'FREE'), ('K1b', 'K1a', 'SAME'), ('K1b', 'K1a', 'PROTECTED'), ('K1b', 'K1a', 'MUTEX'), ('K1b', 'K1a', 'PARALLEL'), ('K1b', 'K1c', 'FREE'), ('K1b', 'K1c', 'SAME'), ('K1b', 'K1c', 'PROTECTED'), ('K1b', 'K1c', 'MUTEX'), ('K1b', 'K1c', 'PARALLEL'), ('K1b', 'K1d', 'FREE'), ('K1b', 'K1d', 'SAME'), ('K1b', 'K1d', 'PROTECTED'), ('K1b', 'K1d', 'MUTEX'), ('K1b', 'K1d', 'PARALLEL'), ('K1b', 'K2a', 'FREE'), ('K1b', 'K2a', 'SAME'), ('K1b', 'K2a', 'PROTECTED'), ('K1b', 'K2a', 'MUTEX'), ('K1b', 'K2a', 'PARALLEL'), ('K1b', 'K2b', 'FREE'), ('K1b', 'K2b', 'SAME'), ('K1b', 'K2b', 'PROTECTED'), ('K1b', 'K2b', 'MUTEX'), ('K1b', 'K2b', 'PARALLEL'), ('K1b', 'K3', 'FREE'), ('K1b', 'K3', 'SAME'), ('K1b', 'K3', 'PROTECTED'), ('K1b', 'K3', 'MUTEX'), ('K1b', 'K3', 'PARALLEL'), ('K1b', 'K4', 'FREE'), ('K1b', 'K4', 'SAME'), ('K1b', 'K4', 'PROTECTED'), ('K1b', 'K4', 'MUTEX'), ('K1b', 'K4', 'PARALLEL'), ('K1b', 'K5', 'FREE'), ('K1b', 'K5', 'SAME'), ('K1b', 'K5', 'PROTECTED'), ('K1b', 'K5', 'MUTEX'), ('K1b', 'K5', 'PARALLEL'), ('K1b', 'K6', 'FREE'), ('K1b', 'K6', 'SAME'), ('K1b', 'K6', 'PROTECTED'), ('K1b', 'K6', 'MUTEX'), ('K1b', 'K6', 'PARALLEL'), ('K1b', 'K6a', 'FREE'), ('K1b', 'K6a', 'SAME'), ('K1b', 'K6a', 'PROTECTED'), ('K1b', 'K6a', 'MUTEX'), ('K1b', 'K6a', 'PARALLEL'), ('K1b', 'K6b', 'FREE'), ('K1b', 'K6b', 'SAME'), ('K1b', 'K6b', 'PROTECTED'), ('K1b', 'K6b', 'MUTEX'), ('K1b', 'K6b', 'PARALLEL'), ('K1b', 'K6c', 'FREE'), ('K1b', 'K6c', 'SAME'), ('K1b', 'K6c', 'PROTECTED'), ('K1b', 'K6c', 'MUTEX'), ('K1b', 'K6c', 'PARALLEL'), ('K1b', 'K7', 'FREE'), ('K1b', 'K7', 'SAME'), ('K1b', 'K7', 'PROTECTED'), ('K1b', 'K7', 'MUTEX'), ('K1b', 'K7', 'PARALLEL'), ('K1c', 'K1a', 'FREE'), ('K1c', 'K1a', 'SAME'), ('K1c', 'K1a', 'PROTECTED'), ('K1c', 'K1a', 'MUTEX'), ('K1c', 'K1a', 'PARALLEL'), ('K1c', 'K1b', 'FREE'), ('K1c', 'K1b', 'SAME'), ('K1c', 'K1b', 'PROTECTED'), ('K1c', 'K1b', 'MUTEX'), ('K1c', 'K1b', 'PARALLEL'), ('K1c', 'K1d', 'FREE'), ('K1c', 'K1d', 'SAME'), ('K1c', 'K1d', 'PROTECTED'), ('K1c', 'K1d', 'MUTEX'), ('K1c', 'K1d', 'PARALLEL'), ('K1c', 'K2a', 'FREE'), ('K1c', 'K2a', 'SAME'), ('K1c', 'K2a', 'PROTECTED'), ('K1c', 'K2a', 'MUTEX'), ('K1c', 'K2a', 'PARALLEL'), ('K1c', 'K2b', 'FREE'), ('K1c', 'K2b', 'SAME'), ('K1c', 'K2b', 'PROTECTED'), ('K1c', 'K2b', 'MUTEX'), ('K1c', 'K2b', 'PARALLEL'), ('K1c', 'K3', 'FREE'), ('K1c', 'K3', 'SAME'), ('K1c', 'K3', 'PROTECTED'), ('K1c', 'K3', 'MUTEX'), ('K1c', 'K3', 'PARALLEL'), ('K1c', 'K4', 'FREE'), ('K1c', 'K4', 'SAME'), ('K1c', 'K4', 'PROTECTED'), ('K1c', 'K4', 'MUTEX'), ('K1c', 'K4', 'PARALLEL'), ('K1c', 'K5', 'FREE'), ('K1c', 'K5', 'SAME'), ('K1c', 'K5', 'PROTECTED'), ('K1c', 'K5', 'MUTEX'), ('K1c', 'K5', 'PARALLEL'), ('K1c', 'K6', 'FREE'), ('K1c', 'K6', 'SAME'), ('K1c', 'K6', 'PROTECTED'), ('K1c', 'K6', 'MUTEX'), ('K1c', 'K6', 'PARALLEL'), ('K1c', 'K6a', 'FREE'), ('K1c', 'K6a', 'SAME'), ('K1c', 'K6a', 'PROTECTED'), ('K1c', 'K6a', 'MUTEX'), ('K1c', 'K6a', 'PARALLEL'), ('K1c', 'K6b', 'FREE'), ('K1c', 'K6b', 'SAME'), ('K1c', 'K6b', 'PROTECTED'), ('K1c', 'K6b', 'MUTEX'), ('K1c', 'K6b', 'PARALLEL'), ('K1c', 'K6c', 'FREE'), ('K1c', 'K6c', 'SAME'), ('K1c', 'K6c', 'PROTECTED'), ('K1c', 'K6c', 'MUTEX'), ('K1c', 'K6c', 'PARALLEL'), ('K1c', 'K7', 'FREE'), ('K1c', 'K7', 'SAME'), ('K1c', 'K7', 'PROTECTED'), ('K1c', 'K7', 'MUTEX'), ('K1c', 'K7', 'PARALLEL'), ('K1d', 'K1a', 'FREE'), ('K1d', 'K1a', 'SAME'), ('K1d', 'K1a', 'PROTECTED'), ('K1d', 'K1a', 'MUTEX'), ('K1d', 'K1a', 'PARALLEL'), ('K1d', 'K1b', 'FREE'), ('K1d', 'K1b', 'SAME'), ('K1d', 'K1b', 'PROTECTED'), ('K1d', 'K1b', 'MUTEX'), ('K1d', 'K1b', 'PARALLEL'), ('K1d', 'K1c', 'FREE'), ('K1d', 'K1c', 'SAME'), ('K1d', 'K1c', 'PROTECTED'), ('K1d', 'K1c', 'MUTEX'), ('K1d', 'K1c', 'PARALLEL'), ('K1d', 'K2a', 'FREE'), ('K1d', 'K2a', 'SAME'), ('K1d', 'K2a', 'PROTECTED'), ('K1d', 'K2a', 'MUTEX'), ('K1d', 'K2a', 'PARALLEL'), ('K1d', 'K2b', 'FREE'), ('K1d', 'K2b', 'SAME'), ('K1d', 'K2b', 'PROTECTED'), ('K1d', 'K2b', 'MUTEX'), ('K1d', 'K2b', 'PARALLEL'), ('K1d', 'K3', 'FREE'), ('K1d', 'K3', 'SAME'), ('K1d', 'K3', 'PROTECTED'), ('K1d', 'K3', 'MUTEX'), ('K1d', 'K3', 'PARALLEL'), ('K1d', 'K4', 'FREE'), ('K1d', 'K4', 'SAME'), ('K1d', 'K4', 'PROTECTED'), ('K1d', 'K4', 'MUTEX'), ('K1d', 'K4', 'PARALLEL'), ('K1d', 'K5', 'FREE'), ('K1d', 'K5', 'SAME'), ('K1d', 'K5', 'PROTECTED'), ('K1d', 'K5', 'MUTEX'), ('K1d', 'K5', 'PARALLEL'), ('K1d', 'K6', 'FREE'), ('K1d', 'K6', 'SAME'), ('K1d', 'K6', 'PROTECTED'), ('K1d', 'K6', 'MUTEX'), ('K1d', 'K6', 'PARALLEL'), ('K1d', 'K6a', 'FREE'), ('K1d', 'K6a', 'SAME'), ('K1d', 'K6a', 'PROTECTED'), ('K1d', 'K6a', 'MUTEX'), ('K1d', 'K6a', 'PARALLEL'), ('K1d', 'K6b', 'FREE'), ('K1d', 'K6b', 'SAME'), ('K1d', 'K6b', 'PROTECTED'), ('K1d', 'K6b', 'MUTEX'), ('K1d', 'K6b', 'PARALLEL'), ('K1d', 'K6c', 'FREE'), ('K1d', 'K6c', 'SAME'), ('K1d', 'K6c', 'PROTECTED'), ('K1d', 'K6c', 'MUTEX'), ('K1d', 'K6c', 'PARALLEL'), ('K1d', 'K7', 'FREE'), ('K1d', 'K7', 'SAME'), ('K1d', 'K7', 'PROTECTED'), ('K1d', 'K7', 'MUTEX'), ('K1d', 'K7', 'PARALLEL'), ('K2a', 'K1a', 'FREE'), ('K2a', 'K1a', 'SAME'), ('K2a', 'K1a', 'PROTECTED'), ('K2a', 'K1a', 'MUTEX'), ('K2a', 'K1a', 'PARALLEL'), ('K2a', 'K1b', 'FREE'), ('K2a', 'K1b', 'SAME'), ('K2a', 'K1b', 'PROTECTED'), ('K2a', 'K1b', 'MUTEX'), ('K2a', 'K1b', 'PARALLEL'), ('K2a', 'K1c', 'FREE'), ('K2a', 'K1c', 'SAME'), ('K2a', 'K1c', 'PROTECTED'), ('K2a', 'K1c', 'MUTEX'), ('K2a', 'K1c', 'PARALLEL'), ('K2a', 'K1d', 'FREE'), ('K2a', 'K1d', 'SAME'), ('K2a', 'K1d', 'PROTECTED'), ('K2a', 'K1d', 'MUTEX'), ('K2a', 'K1d', 'PARALLEL'), ('K2a', 'K2b', 'FREE'), ('K2a', 'K2b', 'SAME'), ('K2a', 'K2b', 'PROTECTED'), ('K2a', 'K2b', 'MUTEX'), ('K2a', 'K2b', 'PARALLEL'), ('K2a', 'K3', 'FREE'), ('K2a', 'K3', 'SAME'), ('K2a', 'K3', 'PROTECTED'), ('K2a', 'K3', 'MUTEX'), ('K2a', 'K3', 'PARALLEL'), ('K2a', 'K4', 'FREE'), ('K2a', 'K4', 'SAME'), ('K2a', 'K4', 'PROTECTED'), ('K2a', 'K4', 'MUTEX'), ('K2a', 'K4', 'PARALLEL'), ('K2a', 'K5', 'FREE'), ('K2a', 'K5', 'SAME'), ('K2a', 'K5', 'PROTECTED'), ('K2a', 'K5', 'MUTEX'), ('K2a', 'K5', 'PARALLEL'), ('K2a', 'K6', 'FREE'), ('K2a', 'K6', 'SAME'), ('K2a', 'K6', 'PROTECTED'), ('K2a', 'K6', 'MUTEX'), ('K2a', 'K6', 'PARALLEL'), ('K2a', 'K6a', 'FREE'), ('K2a', 'K6a', 'SAME'), ('K2a', 'K6a', 'PROTECTED'), ('K2a', 'K6a', 'MUTEX'), ('K2a', 'K6a', 'PARALLEL'), ('K2a', 'K6b', 'FREE'), ('K2a', 'K6b', 'SAME'), ('K2a', 'K6b', 'PROTECTED'), ('K2a', 'K6b', 'MUTEX'), ('K2a', 'K6b', 'PARALLEL'), ('K2a', 'K6c', 'FREE'), ('K2a', 'K6c', 'SAME'), ('K2a', 'K6c', 'PROTECTED'), ('K2a', 'K6c', 'MUTEX'), ('K2a', 'K6c', 'PARALLEL'), ('K2a', 'K7', 'FREE'), ('K2a', 'K7', 'SAME'), ('K2a', 'K7', 'PROTECTED'), ('K2a', 'K7', 'MUTEX'), ('K2a', 'K7', 'PARALLEL'), ('K2b', 'K1a', 'FREE'), ('K2b', 'K1a', 'SAME'), ('K2b', 'K1a', 'PROTECTED'), ('K2b', 'K1a', 'MUTEX'), ('K2b', 'K1a', 'PARALLEL'), ('K2b', 'K1b', 'FREE'), ('K2b', 'K1b', 'SAME'), ('K2b', 'K1b', 'PROTECTED'), ('K2b', 'K1b', 'MUTEX'), ('K2b', 'K1b', 'PARALLEL'), ('K2b', 'K1c', 'FREE'), ('K2b', 'K1c', 'SAME'), ('K2b', 'K1c', 'PROTECTED'), ('K2b', 'K1c', 'MUTEX'), ('K2b', 'K1c', 'PARALLEL'), ('K2b', 'K1d', 'FREE'), ('K2b', 'K1d', 'SAME'), ('K2b', 'K1d', 'PROTECTED'), ('K2b', 'K1d', 'MUTEX'), ('K2b', 'K1d', 'PARALLEL'), ('K2b', 'K2a', 'FREE'), ('K2b', 'K2a', 'SAME'), ('K2b', 'K2a', 'PROTECTED'), ('K2b', 'K2a', 'MUTEX'), ('K2b', 'K2a', 'PARALLEL'), ('K2b', 'K3', 'FREE'), ('K2b', 'K3', 'SAME'), ('K2b', 'K3', 'PROTECTED'), ('K2b', 'K3', 'MUTEX'), ('K2b', 'K3', 'PARALLEL'), ('K2b', 'K4', 'FREE'), ('K2b', 'K4', 'SAME'), ('K2b', 'K4', 'PROTECTED'), ('K2b', 'K4', 'MUTEX'), ('K2b', 'K4', 'PARALLEL'), ('K2b', 'K5', 'FREE'), ('K2b', 'K5', 'SAME'), ('K2b', 'K5', 'PROTECTED'), ('K2b', 'K5', 'MUTEX'), ('K2b', 'K5', 'PARALLEL'), ('K2b', 'K6', 'FREE'), ('K2b', 'K6', 'SAME'), ('K2b', 'K6', 'PROTECTED'), ('K2b', 'K6', 'MUTEX'), ('K2b', 'K6', 'PARALLEL'), ('K2b', 'K6a', 'FREE'), ('K2b', 'K6a', 'SAME'), ('K2b', 'K6a', 'PROTECTED'), ('K2b', 'K6a', 'MUTEX'), ('K2b', 'K6a', 'PARALLEL'), ('K2b', 'K6b', 'FREE'), ('K2b', 'K6b', 'SAME'), ('K2b', 'K6b', 'PROTECTED'), ('K2b', 'K6b', 'MUTEX'), ('K2b', 'K6b', 'PARALLEL'), ('K2b', 'K6c', 'FREE'), ('K2b', 'K6c', 'SAME'), ('K2b', 'K6c', 'PROTECTED'), ('K2b', 'K6c', 'MUTEX'), ('K2b', 'K6c', 'PARALLEL'), ('K2b', 'K7', 'FREE'), ('K2b', 'K7', 'SAME'), ('K2b', 'K7', 'PROTECTED'), ('K2b', 'K7', 'MUTEX'), ('K2b', 'K7', 'PARALLEL'), ('K3', 'K1a', 'FREE'), ('K3', 'K1a', 'SAME'), ('K3', 'K1a', 'PROTECTED'), ('K3', 'K1a', 'MUTEX'), ('K3', 'K1a', 'PARALLEL'), ('K3', 'K1b', 'FREE'), ('K3', 'K1b', 'SAME'), ('K3', 'K1b', 'PROTECTED'), ('K3', 'K1b', 'MUTEX'), ('K3', 'K1b', 'PARALLEL'), ('K3', 'K1c', 'FREE'), ('K3', 'K1c', 'SAME'), ('K3', 'K1c', 'PROTECTED'), ('K3', 'K1c', 'MUTEX'), ('K3', 'K1c', 'PARALLEL'), ('K3', 'K1d', 'FREE'), ('K3', 'K1d', 'SAME'), ('K3', 'K1d', 'PROTECTED'), ('K3', 'K1d', 'MUTEX'), ('K3', 'K1d', 'PARALLEL'), ('K3', 'K2a', 'FREE'), ('K3', 'K2a', 'SAME'), ('K3', 'K2a', 'PROTECTED'), ('K3', 'K2a', 'MUTEX'), ('K3', 'K2a', 'PARALLEL'), ('K3', 'K2b', 'FREE'), ('K3', 'K2b', 'SAME'), ('K3', 'K2b', 'PROTECTED'), ('K3', 'K2b', 'MUTEX'), ('K3', 'K2b', 'PARALLEL'), ('K3', 'K4', 'FREE'), ('K3', 'K4', 'SAME'), ('K3', 'K4', 'PROTECTED'), ('K3', 'K4', 'MUTEX'), ('K3', 'K4', 'PARALLEL'), ('K3', 'K5', 'FREE'), ('K3', 'K5', 'SAME'), ('K3', 'K5', 'PROTECTED'), ('K3', 'K5', 'MUTEX'), ('K3', 'K5', 'PARALLEL'), ('K3', 'K6', 'FREE'), ('K3', 'K6', 'SAME'), ('K3', 'K6', 'PROTECTED'), ('K3', 'K6', 'MUTEX'), ('K3', 'K6', 'PARALLEL'), ('K3', 'K6a', 'FREE'), ('K3', 'K6a', 'SAME'), ('K3', 'K6a', 'PROTECTED'), ('K3', 'K6a', 'MUTEX'), ('K3', 'K6a', 'PARALLEL'), ('K3', 'K6b', 'FREE'), ('K3', 'K6b', 'SAME'), ('K3', 'K6b', 'PROTECTED'), ('K3', 'K6b', 'MUTEX'), ('K3', 'K6b', 'PARALLEL'), ('K3', 'K6c', 'FREE'), ('K3', 'K6c', 'SAME'), ('K3', 'K6c', 'PROTECTED'), ('K3', 'K6c', 'MUTEX'), ('K3', 'K6c', 'PARALLEL'), ('K3', 'K7', 'FREE'), ('K3', 'K7', 'SAME'), ('K3', 'K7', 'PROTECTED'), ('K3', 'K7', 'MUTEX'), ('K3', 'K7', 'PARALLEL'), ('K4', 'K1a', 'FREE'), ('K4', 'K1a', 'SAME'), ('K4', 'K1a', 'PROTECTED'), ('K4', 'K1a', 'MUTEX'), ('K4', 'K1a', 'PARALLEL'), ('K4', 'K1b', 'FREE'), ('K4', 'K1b', 'SAME'), ('K4', 'K1b', 'PROTECTED'), ('K4', 'K1b', 'MUTEX'), ('K4', 'K1b', 'PARALLEL'), ('K4', 'K1c', 'FREE'), ('K4', 'K1c', 'SAME'), ('K4', 'K1c', 'PROTECTED'), ('K4', 'K1c', 'MUTEX'), ('K4', 'K1c', 'PARALLEL'), ('K4', 'K1d', 'FREE'), ('K4', 'K1d', 'SAME'), ('K4', 'K1d', 'PROTECTED'), ('K4', 'K1d', 'MUTEX'), ('K4', 'K1d', 'PARALLEL'), ('K4', 'K2a', 'FREE'), ('K4', 'K2a', 'SAME'), ('K4', 'K2a', 'PROTECTED'), ('K4', 'K2a', 'MUTEX'), ('K4', 'K2a', 'PARALLEL'), ('K4', 'K2b', 'FREE'), ('K4', 'K2b', 'SAME'), ('K4', 'K2b', 'PROTECTED'), ('K4', 'K2b', 'MUTEX'), ('K4', 'K2b', 'PARALLEL'), ('K4', 'K3', 'FREE'), ('K4', 'K3', 'SAME'), ('K4', 'K3', 'PROTECTED'), ('K4', 'K3', 'MUTEX'), ('K4', 'K3', 'PARALLEL'), ('K4', 'K5', 'FREE'), ('K4', 'K5', 'SAME'), ('K4', 'K5', 'PROTECTED'), ('K4', 'K5', 'MUTEX'), ('K4', 'K5', 'PARALLEL'), ('K4', 'K6', 'FREE'), ('K4', 'K6', 'SAME'), ('K4', 'K6', 'PROTECTED'), ('K4', 'K6', 'MUTEX'), ('K4', 'K6', 'PARALLEL'), ('K4', 'K6a', 'FREE'), ('K4', 'K6a', 'SAME'), ('K4', 'K6a', 'PROTECTED'), ('K4', 'K6a', 'MUTEX'), ('K4', 'K6a', 'PARALLEL'), ('K4', 'K6b', 'FREE'), ('K4', 'K6b', 'SAME'), ('K4', 'K6b', 'PROTECTED'), ('K4', 'K6b', 'MUTEX'), ('K4', 'K6b', 'PARALLEL'), ('K4', 'K6c', 'FREE'), ('K4', 'K6c', 'SAME'), ('K4', 'K6c', 'PROTECTED'), ('K4', 'K6c', 'MUTEX'), ('K4', 'K6c', 'PARALLEL'), ('K4', 'K7', 'FREE'), ('K4', 'K7', 'SAME'), ('K4', 'K7', 'PROTECTED'), ('K4', 'K7', 'MUTEX'), ('K4', 'K7', 'PARALLEL'), ('K5', 'K1a', 'FREE'), ('K5', 'K1a', 'SAME'), ('K5', 'K1a', 'PROTECTED'), ('K5', 'K1a', 'MUTEX'), ('K5', 'K1a', 'PARALLEL'), ('K5', 'K1b', 'FREE'), ('K5', 'K1b', 'SAME'), ('K5', 'K1b', 'PROTECTED'), ('K5', 'K1b', 'MUTEX'), ('K5', 'K1b', 'PARALLEL'), ('K5', 'K1c', 'FREE'), ('K5', 'K1c', 'SAME'), ('K5', 'K1c', 'PROTECTED'), ('K5', 'K1c', 'MUTEX'), ('K5', 'K1c', 'PARALLEL'), ('K5', 'K1d', 'FREE'), ('K5', 'K1d', 'SAME'), ('K5', 'K1d', 'PROTECTED'), ('K5', 'K1d', 'MUTEX'), ('K5', 'K1d', 'PARALLEL'), ('K5', 'K2a', 'FREE'), ('K5', 'K2a', 'SAME'), ('K5', 'K2a', 'PROTECTED'), ('K5', 'K2a', 'MUTEX'), ('K5', 'K2a', 'PARALLEL'), ('K5', 'K2b', 'FREE'), ('K5', 'K2b', 'SAME'), ('K5', 'K2b', 'PROTECTED'), ('K5', 'K2b', 'MUTEX'), ('K5', 'K2b', 'PARALLEL'), ('K5', 'K3', 'FREE'), ('K5', 'K3', 'SAME'), ('K5', 'K3', 'PROTECTED'), ('K5', 'K3', 'MUTEX'), ('K5', 'K3', 'PARALLEL'), ('K5', 'K4', 'FREE'), ('K5', 'K4', 'SAME'), ('K5', 'K4', 'PROTECTED'), ('K5', 'K4', 'MUTEX'), ('K5', 'K4', 'PARALLEL'), ('K5', 'K6', 'FREE'), ('K5', 'K6', 'SAME'), ('K5', 'K6', 'PROTECTED'), ('K5', 'K6', 'MUTEX'), ('K5', 'K6', 'PARALLEL'), ('K5', 'K6a', 'FREE'), ('K5', 'K6a', 'SAME'), ('K5', 'K6a', 'PROTECTED'), ('K5', 'K6a', 'MUTEX'), ('K5', 'K6a', 'PARALLEL'), ('K5', 'K6b', 'FREE'), ('K5', 'K6b', 'SAME'), ('K5', 'K6b', 'PROTECTED'), ('K5', 'K6b', 'MUTEX'), ('K5', 'K6b', 'PARALLEL'), ('K5', 'K6c', 'FREE'), ('K5', 'K6c', 'SAME'), ('K5', 'K6c', 'PROTECTED'), ('K5', 'K6c', 'MUTEX'), ('K5', 'K6c', 'PARALLEL'), ('K5', 'K7', 'FREE'), ('K5', 'K7', 'SAME'), ('K5', 'K7', 'PROTECTED'), ('K5', 'K7', 'MUTEX'), ('K5', 'K7', 'PARALLEL'), ('K6', 'K1a', 'FREE'), ('K6', 'K1a', 'SAME'), ('K6', 'K1a', 'PROTECTED'), ('K6', 'K1a', 'MUTEX'), ('K6', 'K1a', 'PARALLEL'), ('K6', 'K1b', 'FREE'), ('K6', 'K1b', 'SAME'), ('K6', 'K1b', 'PROTECTED'), ('K6', 'K1b', 'MUTEX'), ('K6', 'K1b', 'PARALLEL'), ('K6', 'K1c', 'FREE'), ('K6', 'K1c', 'SAME'), ('K6', 'K1c', 'PROTECTED'), ('K6', 'K1c', 'MUTEX'), ('K6', 'K1c', 'PARALLEL'), ('K6', 'K1d', 'FREE'), ('K6', 'K1d', 'SAME'), ('K6', 'K1d', 'PROTECTED'), ('K6', 'K1d', 'MUTEX'), ('K6', 'K1d', 'PARALLEL'), ('K6', 'K2a', 'FREE'), ('K6', 'K2a', 'SAME'), ('K6', 'K2a', 'PROTECTED'), ('K6', 'K2a', 'MUTEX'), ('K6', 'K2a', 'PARALLEL'), ('K6', 'K2b', 'FREE'), ('K6', 'K2b', 'SAME'), ('K6', 'K2b', 'PROTECTED'), ('K6', 'K2b', 'MUTEX'), ('K6', 'K2b', 'PARALLEL'), ('K6', 'K3', 'FREE'), ('K6', 'K3', 'SAME'), ('K6', 'K3', 'PROTECTED'), ('K6', 'K3', 'MUTEX'), ('K6', 'K3', 'PARALLEL'), ('K6', 'K4', 'FREE'), ('K6', 'K4', 'SAME'), ('K6', 'K4', 'PROTECTED'), ('K6', 'K4', 'MUTEX'), ('K6', 'K4', 'PARALLEL'), ('K6', 'K5', 'FREE'), ('K6', 'K5', 'SAME'), ('K6', 'K5', 'PROTECTED'), ('K6', 'K5', 'MUTEX'), ('K6', 'K5', 'PARALLEL'), ('K6', 'K6a', 'FREE'), ('K6', 'K6a', 'SAME'), ('K6', 'K6a', 'PROTECTED'), ('K6', 'K6a', 'MUTEX'), ('K6', 'K6a', 'PARALLEL'), ('K6', 'K6b', 'FREE'), ('K6', 'K6b', 'SAME'), ('K6', 'K6b', 'PROTECTED'), ('K6', 'K6b', 'MUTEX'), ('K6', 'K6b', 'PARALLEL'), ('K6', 'K6c', 'FREE'), ('K6', 'K6c', 'SAME'), ('K6', 'K6c', 'PROTECTED'), ('K6', 'K6c', 'MUTEX'), ('K6', 'K6c', 'PARALLEL'), ('K6', 'K7', 'FREE'), ('K6', 'K7', 'SAME'), ('K6', 'K7', 'PROTECTED'), ('K6', 'K7', 'MUTEX'), ('K6', 'K7', 'PARALLEL'), ('K6a', 'K1a', 'FREE'), ('K6a', 'K1a', 'SAME'), ('K6a', 'K1a', 'PROTECTED'), ('K6a', 'K1a', 'MUTEX'), ('K6a', 'K1a', 'PARALLEL'), ('K6a', 'K1b', 'FREE'), ('K6a', 'K1b', 'SAME'), ('K6a', 'K1b', 'PROTECTED'), ('K6a', 'K1b', 'MUTEX'), ('K6a', 'K1b', 'PARALLEL'), ('K6a', 'K1c', 'FREE'), ('K6a', 'K1c', 'SAME'), ('K6a', 'K1c', 'PROTECTED'), ('K6a', 'K1c', 'MUTEX'), ('K6a', 'K1c', 'PARALLEL'), ('K6a', 'K1d', 'FREE'), ('K6a', 'K1d', 'SAME'), ('K6a', 'K1d', 'PROTECTED'), ('K6a', 'K1d', 'MUTEX'), ('K6a', 'K1d', 'PARALLEL'), ('K6a', 'K2a', 'FREE'), ('K6a', 'K2a', 'SAME'), ('K6a', 'K2a', 'PROTECTED'), ('K6a', 'K2a', 'MUTEX'), ('K6a', 'K2a', 'PARALLEL'), ('K6a', 'K2b', 'FREE'), ('K6a', 'K2b', 'SAME'), ('K6a', 'K2b', 'PROTECTED'), ('K6a', 'K2b', 'MUTEX'), ('K6a', 'K2b', 'PARALLEL'), ('K6a', 'K3', 'FREE'), ('K6a', 'K3', 'SAME'), ('K6a', 'K3', 'PROTECTED'), ('K6a', 'K3', 'MUTEX'), ('K6a', 'K3', 'PARALLEL'), ('K6a', 'K4', 'FREE'), ('K6a', 'K4', 'SAME'), ('K6a', 'K4', 'PROTECTED'), ('K6a', 'K4', 'MUTEX'), ('K6a', 'K4', 'PARALLEL'), ('K6a', 'K5', 'FREE'), ('K6a', 'K5', 'SAME'), ('K6a', 'K5', 'PROTECTED'), ('K6a', 'K5', 'MUTEX'), ('K6a', 'K5', 'PARALLEL'), ('K6a', 'K6', 'FREE'), ('K6a', 'K6', 'SAME'), ('K6a', 'K6', 'PROTECTED'), ('K6a', 'K6', 'MUTEX'), ('K6a', 'K6', 'PARALLEL'), ('K6a', 'K6b', 'FREE'), ('K6a', 'K6b', 'SAME'), ('K6a', 'K6b', 'PROTECTED'), ('K6a', 'K6b', 'MUTEX'), ('K6a', 'K6b', 'PARALLEL'), ('K6a', 'K6c', 'FREE'), ('K6a', 'K6c', 'SAME'), ('K6a', 'K6c', 'PROTECTED'), ('K6a', 'K6c', 'MUTEX'), ('K6a', 'K6c', 'PARALLEL'), ('K6a', 'K7', 'FREE'), ('K6a', 'K7', 'SAME'), ('K6a', 'K7', 'PROTECTED'), ('K6a', 'K7', 'MUTEX'), ('K6a', 'K7', 'PARALLEL'), ('K6b', 'K1a', 'FREE'), ('K6b', 'K1a', 'SAME'), ('K6b', 'K1a', 'PROTECTED'), ('K6b', 'K1a', 'MUTEX'), ('K6b', 'K1a', 'PARALLEL'), ('K6b', 'K1b', 'FREE'), ('K6b', 'K1b', 'SAME'), ('K6b', 'K1b', 'PROTECTED'), ('K6b', 'K1b', 'MUTEX'), ('K6b', 'K1b', 'PARALLEL'), ('K6b', 'K1c', 'FREE'), ('K6b', 'K1c', 'SAME'), ('K6b', 'K1c', 'PROTECTED'), ('K6b', 'K1c', 'MUTEX'), ('K6b', 'K1c', 'PARALLEL'), ('K6b', 'K1d', 'FREE'), ('K6b', 'K1d', 'SAME'), ('K6b', 'K1d', 'PROTECTED'), ('K6b', 'K1d', 'MUTEX'), ('K6b', 'K1d', 'PARALLEL'), ('K6b', 'K2a', 'FREE'), ('K6b', 'K2a', 'SAME'), ('K6b', 'K2a', 'PROTECTED'), ('K6b', 'K2a', 'MUTEX'), ('K6b', 'K2a', 'PARALLEL'), ('K6b', 'K2b', 'FREE'), ('K6b', 'K2b', 'SAME'), ('K6b', 'K2b', 'PROTECTED'), ('K6b', 'K2b', 'MUTEX'), ('K6b', 'K2b', 'PARALLEL'), ('K6b', 'K3', 'FREE'), ('K6b', 'K3', 'SAME'), ('K6b', 'K3', 'PROTECTED'), ('K6b', 'K3', 'MUTEX'), ('K6b', 'K3', 'PARALLEL'), ('K6b', 'K4', 'FREE'), ('K6b', 'K4', 'SAME'), ('K6b', 'K4', 'PROTECTED'), ('K6b', 'K4', 'MUTEX'), ('K6b', 'K4', 'PARALLEL'), ('K6b', 'K5', 'FREE'), ('K6b', 'K5', 'SAME'), ('K6b', 'K5', 'PROTECTED'), ('K6b', 'K5', 'MUTEX'), ('K6b', 'K5', 'PARALLEL'), ('K6b', 'K6', 'FREE'), ('K6b', 'K6', 'SAME'), ('K6b', 'K6', 'PROTECTED'), ('K6b', 'K6', 'MUTEX'), ('K6b', 'K6', 'PARALLEL'), ('K6b', 'K6a', 'FREE'), ('K6b', 'K6a', 'SAME'), ('K6b', 'K6a', 'PROTECTED'), ('K6b', 'K6a', 'MUTEX'), ('K6b', 'K6a', 'PARALLEL'), ('K6b', 'K6c', 'FREE'), ('K6b', 'K6c', 'SAME'), ('K6b', 'K6c', 'PROTECTED'), ('K6b', 'K6c', 'MUTEX'), ('K6b', 'K6c', 'PARALLEL'), ('K6b', 'K7', 'FREE'), ('K6b', 'K7', 'SAME'), ('K6b', 'K7', 'PROTECTED'), ('K6b', 'K7', 'MUTEX'), ('K6b', 'K7', 'PARALLEL'), ('K6c', 'K1a', 'FREE'), ('K6c', 'K1a', 'SAME'), ('K6c', 'K1a', 'PROTECTED'), ('K6c', 'K1a', 'MUTEX'), ('K6c', 'K1a', 'PARALLEL'), ('K6c', 'K1b', 'FREE'), ('K6c', 'K1b', 'SAME'), ('K6c', 'K1b', 'PROTECTED'), ('K6c', 'K1b', 'MUTEX'), ('K6c', 'K1b', 'PARALLEL'), ('K6c', 'K1c', 'FREE'), ('K6c', 'K1c', 'SAME'), ('K6c', 'K1c', 'PROTECTED'), ('K6c', 'K1c', 'MUTEX'), ('K6c', 'K1c', 'PARALLEL'), ('K6c', 'K1d', 'FREE'), ('K6c', 'K1d', 'SAME'), ('K6c', 'K1d', 'PROTECTED'), ('K6c', 'K1d', 'MUTEX'), ('K6c', 'K1d', 'PARALLEL'), ('K6c', 'K2a', 'FREE'), ('K6c', 'K2a', 'SAME'), ('K6c', 'K2a', 'PROTECTED'), ('K6c', 'K2a', 'MUTEX'), ('K6c', 'K2a', 'PARALLEL'), ('K6c', 'K2b', 'FREE'), ('K6c', 'K2b', 'SAME'), ('K6c', 'K2b', 'PROTECTED'), ('K6c', 'K2b', 'MUTEX'), ('K6c', 'K2b', 'PARALLEL'), ('K6c', 'K3', 'FREE'), ('K6c', 'K3', 'SAME'), ('K6c', 'K3', 'PROTECTED'), ('K6c', 'K3', 'MUTEX'), ('K6c', 'K3', 'PARALLEL'), ('K6c', 'K4', 'FREE'), ('K6c', 'K4', 'SAME'), ('K6c', 'K4', 'PROTECTED'), ('K6c', 'K4', 'MUTEX'), ('K6c', 'K4', 'PARALLEL'), ('K6c', 'K5', 'FREE'), ('K6c', 'K5', 'SAME'), ('K6c', 'K5', 'PROTECTED'), ('K6c', 'K5', 'MUTEX'), ('K6c', 'K5', 'PARALLEL'), ('K6c', 'K6', 'FREE'), ('K6c', 'K6', 'SAME'), ('K6c', 'K6', 'PROTECTED'), ('K6c', 'K6', 'MUTEX'), ('K6c', 'K6', 'PARALLEL'), ('K6c', 'K6a', 'FREE'), ('K6c', 'K6a', 'SAME'), ('K6c', 'K6a', 'PROTECTED'), ('K6c', 'K6a', 'MUTEX'), ('K6c', 'K6a', 'PARALLEL'), ('K6c', 'K6b', 'FREE'), ('K6c', 'K6b', 'SAME'), ('K6c', 'K6b', 'PROTECTED'), ('K6c', 'K6b', 'MUTEX'), ('K6c', 'K6b', 'PARALLEL'), ('K6c', 'K7', 'FREE'), ('K6c', 'K7', 'SAME'), ('K6c', 'K7', 'PROTECTED'), ('K6c', 'K7', 'MUTEX'), ('K6c', 'K7', 'PARALLEL'), ('K7', 'K1a', 'FREE'), ('K7', 'K1a', 'SAME'), ('K7', 'K1a', 'PROTECTED'), ('K7', 'K1a', 'MUTEX'), ('K7', 'K1a', 'PARALLEL'), ('K7', 'K1b', 'FREE'), ('K7', 'K1b', 'SAME'), ('K7', 'K1b', 'PROTECTED'), ('K7', 'K1b', 'MUTEX'), ('K7', 'K1b', 'PARALLEL'), ('K7', 'K1c', 'FREE'), ('K7', 'K1c', 'SAME'), ('K7', 'K1c', 'PROTECTED'), ('K7', 'K1c', 'MUTEX'), ('K7', 'K1c', 'PARALLEL'), ('K7', 'K1d', 'FREE'), ('K7', 'K1d', 'SAME'), ('K7', 'K1d', 'PROTECTED'), ('K7', 'K1d', 'MUTEX'), ('K7', 'K1d', 'PARALLEL'), ('K7', 'K2a', 'FREE'), ('K7', 'K2a', 'SAME'), ('K7', 'K2a', 'PROTECTED'), ('K7', 'K2a', 'MUTEX'), ('K7', 'K2a', 'PARALLEL'), ('K7', 'K2b', 'FREE'), ('K7', 'K2b', 'SAME'), ('K7', 'K2b', 'PROTECTED'), ('K7', 'K2b', 'MUTEX'), ('K7', 'K2b', 'PARALLEL'), ('K7', 'K3', 'FREE'), ('K7', 'K3', 'SAME'), ('K7', 'K3', 'PROTECTED'), ('K7', 'K3', 'MUTEX'), ('K7', 'K3', 'PARALLEL'), ('K7', 'K4', 'FREE'), ('K7', 'K4', 'SAME'), ('K7', 'K4', 'PROTECTED'), ('K7', 'K4', 'MUTEX'), ('K7', 'K4', 'PARALLEL'), ('K7', 'K5', 'FREE'), ('K7', 'K5', 'SAME'), ('K7', 'K5', 'PROTECTED'), ('K7', 'K5', 'MUTEX'), ('K7', 'K5', 'PARALLEL'), ('K7', 'K6', 'FREE'), ('K7', 'K6', 'SAME'), ('K7', 'K6', 'PROTECTED'), ('K7', 'K6', 'MUTEX'), ('K7', 'K6', 'PARALLEL'), ('K7', 'K6a', 'FREE'), ('K7', 'K6a', 'SAME'), ('K7', 'K6a', 'PROTECTED'), ('K7', 'K6a', 'MUTEX'), ('K7', 'K6a', 'PARALLEL'), ('K7', 'K6b', 'FREE'), ('K7', 'K6b', 'SAME'), ('K7', 'K6b', 'PROTECTED'), ('K7', 'K6b', 'MUTEX'), ('K7', 'K6b', 'PARALLEL'), ('K7', 'K6c', 'FREE'), ('K7', 'K6c', 'SAME'), ('K7', 'K6c', 'PROTECTED'), ('K7', 'K6c', 'MUTEX'), ('K7', 'K6c', 'PARALLEL')}
+    P_UNIVERSE : Size=1, Index=None, Ordered=Insertion
+        Key  : Dimen : Domain : Size : Members
+        None :     2 :    Any :  182 : {('K1a', 'K1b'), ('K1a', 'K1c'), ('K1a', 'K1d'), ('K1a', 'K2a'), ('K1a', 'K2b'), ('K1a', 'K3'), ('K1a', 'K4'), ('K1a', 'K5'), ('K1a', 'K6'), ('K1a', 'K6a'), ('K1a', 'K6b'), ('K1a', 'K6c'), ('K1a', 'K7'), ('K1b', 'K1a'), ('K1b', 'K1c'), ('K1b', 'K1d'), ('K1b', 'K2a'), ('K1b', 'K2b'), ('K1b', 'K3'), ('K1b', 'K4'), ('K1b', 'K5'), ('K1b', 'K6'), ('K1b', 'K6a'), ('K1b', 'K6b'), ('K1b', 'K6c'), ('K1b', 'K7'), ('K1c', 'K1a'), ('K1c', 'K1b'), ('K1c', 'K1d'), ('K1c', 'K2a'), ('K1c', 'K2b'), ('K1c', 'K3'), ('K1c', 'K4'), ('K1c', 'K5'), ('K1c', 'K6'), ('K1c', 'K6a'), ('K1c', 'K6b'), ('K1c', 'K6c'), ('K1c', 'K7'), ('K1d', 'K1a'), ('K1d', 'K1b'), ('K1d', 'K1c'), ('K1d', 'K2a'), ('K1d', 'K2b'), ('K1d', 'K3'), ('K1d', 'K4'), ('K1d', 'K5'), ('K1d', 'K6'), ('K1d', 'K6a'), ('K1d', 'K6b'), ('K1d', 'K6c'), ('K1d', 'K7'), ('K2a', 'K1a'), ('K2a', 'K1b'), ('K2a', 'K1c'), ('K2a', 'K1d'), ('K2a', 'K2b'), ('K2a', 'K3'), ('K2a', 'K4'), ('K2a', 'K5'), ('K2a', 'K6'), ('K2a', 'K6a'), ('K2a', 'K6b'), ('K2a', 'K6c'), ('K2a', 'K7'), ('K2b', 'K1a'), ('K2b', 'K1b'), ('K2b', 'K1c'), ('K2b', 'K1d'), ('K2b', 'K2a'), ('K2b', 'K3'), ('K2b', 'K4'), ('K2b', 'K5'), ('K2b', 'K6'), ('K2b', 'K6a'), ('K2b', 'K6b'), ('K2b', 'K6c'), ('K2b', 'K7'), ('K3', 'K1a'), ('K3', 'K1b'), ('K3', 'K1c'), ('K3', 'K1d'), ('K3', 'K2a'), ('K3', 'K2b'), ('K3', 'K4'), ('K3', 'K5'), ('K3', 'K6'), ('K3', 'K6a'), ('K3', 'K6b'), ('K3', 'K6c'), ('K3', 'K7'), ('K4', 'K1a'), ('K4', 'K1b'), ('K4', 'K1c'), ('K4', 'K1d'), ('K4', 'K2a'), ('K4', 'K2b'), ('K4', 'K3'), ('K4', 'K5'), ('K4', 'K6'), ('K4', 'K6a'), ('K4', 'K6b'), ('K4', 'K6c'), ('K4', 'K7'), ('K5', 'K1a'), ('K5', 'K1b'), ('K5', 'K1c'), ('K5', 'K1d'), ('K5', 'K2a'), ('K5', 'K2b'), ('K5', 'K3'), ('K5', 'K4'), ('K5', 'K6'), ('K5', 'K6a'), ('K5', 'K6b'), ('K5', 'K6c'), ('K5', 'K7'), ('K6', 'K1a'), ('K6', 'K1b'), ('K6', 'K1c'), ('K6', 'K1d'), ('K6', 'K2a'), ('K6', 'K2b'), ('K6', 'K3'), ('K6', 'K4'), ('K6', 'K5'), ('K6', 'K6a'), ('K6', 'K6b'), ('K6', 'K6c'), ('K6', 'K7'), ('K6a', 'K1a'), ('K6a', 'K1b'), ('K6a', 'K1c'), ('K6a', 'K1d'), ('K6a', 'K2a'), ('K6a', 'K2b'), ('K6a', 'K3'), ('K6a', 'K4'), ('K6a', 'K5'), ('K6a', 'K6'), ('K6a', 'K6b'), ('K6a', 'K6c'), ('K6a', 'K7'), ('K6b', 'K1a'), ('K6b', 'K1b'), ('K6b', 'K1c'), ('K6b', 'K1d'), ('K6b', 'K2a'), ('K6b', 'K2b'), ('K6b', 'K3'), ('K6b', 'K4'), ('K6b', 'K5'), ('K6b', 'K6'), ('K6b', 'K6a'), ('K6b', 'K6c'), ('K6b', 'K7'), ('K6c', 'K1a'), ('K6c', 'K1b'), ('K6c', 'K1c'), ('K6c', 'K1d'), ('K6c', 'K2a'), ('K6c', 'K2b'), ('K6c', 'K3'), ('K6c', 'K4'), ('K6c', 'K5'), ('K6c', 'K6'), ('K6c', 'K6a'), ('K6c', 'K6b'), ('K6c', 'K7'), ('K7', 'K1a'), ('K7', 'K1b'), ('K7', 'K1c'), ('K7', 'K1d'), ('K7', 'K2a'), ('K7', 'K2b'), ('K7', 'K3'), ('K7', 'K4'), ('K7', 'K5'), ('K7', 'K6'), ('K7', 'K6a'), ('K7', 'K6b'), ('K7', 'K6c')}
+    P_free : Size=1, Index=None, Ordered=Insertion
+        Key  : Dimen : Domain     : Size : Members
+        None :     2 : P_UNIVERSE :    2 : {('K4', 'K5'), ('K5', 'K6')}
+    P_mutex : Size=1, Index=None, Ordered=Insertion
+        Key  : Dimen : Domain     : Size : Members
+        None :     2 : P_UNIVERSE :    2 : {('K1a', 'K2a'), ('K1a', 'K3')}
+    P_parallel : Size=1, Index=None, Ordered=Insertion
+        Key  : Dimen : Domain     : Size : Members
+        None :     2 : P_UNIVERSE :    3 : {('K6', 'K6a'), ('K6', 'K6b'), ('K6', 'K6c')}
+    P_prec : Size=1, Index=None, Ordered=Insertion
+        Key  : Dimen : Domain     : Size : Members
+        None :     2 : P_UNIVERSE :    7 : {('K3', 'K4'), ('K6', 'K7'), ('K1a', 'K1b'), ('K1b', 'K1c'), ('K1c', 'K1d'), ('K4', 'K5'), ('K5', 'K6')}
+    P_prot : Size=1, Index=None, Ordered=Insertion
+        Key  : Dimen : Domain     : Size : Members
+        None :     2 : P_UNIVERSE :    3 : {('K1a', 'K1b'), ('K1b', 'K1c'), ('K1c', 'K1d')}
+    P_same : Size=1, Index=None, Ordered=Insertion
+        Key  : Dimen : Domain     : Size : Members
+        None :     2 : P_UNIVERSE :    2 : {('K3', 'K4'), ('K6', 'K7')}
+    RelationTypes : Size=1, Index=None, Ordered=Insertion
+        Key  : Dimen : Domain : Size : Members
+        None :     1 :    Any :    5 : {'FREE', 'SAME', 'PROTECTED', 'MUTEX', 'PARALLEL'}
+    U_exec_index : Size=1, Index=None, Ordered=True
+        Key  : Dimen : Domain : Size : Members
+        None :     2 :    K*M :   28 : {('K1a', 'GW'), ('K1a', 'EL'), ('K1b', 'GW'), ('K1b', 'EL'), ('K1c', 'GW'), ('K1c', 'EL'), ('K1d', 'GW'), ('K1d', 'EL'), ('K2a', 'GW'), ('K2a', 'EL'), ('K2b', 'GW'), ('K2b', 'EL'), ('K3', 'GW'), ('K3', 'EL'), ('K4', 'GW'), ('K4', 'EL'), ('K5', 'GW'), ('K5', 'EL'), ('K6', 'GW'), ('K6', 'EL'), ('K6a', 'GW'), ('K6a', 'EL'), ('K6b', 'GW'), ('K6b', 'EL'), ('K6c', 'GW'), ('K6c', 'EL'), ('K7', 'GW'), ('K7', 'EL')}
+    al_index : Size=1, Index=None, Ordered=True
+        Key  : Dimen : Domain    : Size : Members
+        None :     3 : K*J_slots :  364 : {('K1a', 'GW', 1), ('K1a', 'GW', 2), ('K1a', 'GW', 3), ('K1a', 'GW', 4), ('K1a', 'GW', 5), ('K1a', 'GW', 6), ('K1a', 'GW', 7), ('K1a', 'GW', 8), ('K1a', 'GW', 9), ('K1a', 'GW', 10), ('K1a', 'GW', 11), ('K1a', 'GW', 12), ('K1a', 'GW', 13), ('K1a', 'GW', 14), ('K1a', 'GW', 15), ('K1a', 'GW', 16), ('K1a', 'EL', 1), ('K1a', 'EL', 2), ('K1a', 'EL', 3), ('K1a', 'EL', 4), ('K1a', 'EL', 5), ('K1a', 'EL', 6), ('K1a', 'EL', 7), ('K1a', 'EL', 8), ('K1a', 'EL', 9), ('K1a', 'EL', 10), ('K1b', 'GW', 1), ('K1b', 'GW', 2), ('K1b', 'GW', 3), ('K1b', 'GW', 4), ('K1b', 'GW', 5), ('K1b', 'GW', 6), ('K1b', 'GW', 7), ('K1b', 'GW', 8), ('K1b', 'GW', 9), ('K1b', 'GW', 10), ('K1b', 'GW', 11), ('K1b', 'GW', 12), ('K1b', 'GW', 13), ('K1b', 'GW', 14), ('K1b', 'GW', 15), ('K1b', 'GW', 16), ('K1b', 'EL', 1), ('K1b', 'EL', 2), ('K1b', 'EL', 3), ('K1b', 'EL', 4), ('K1b', 'EL', 5), ('K1b', 'EL', 6), ('K1b', 'EL', 7), ('K1b', 'EL', 8), ('K1b', 'EL', 9), ('K1b', 'EL', 10), ('K1c', 'GW', 1), ('K1c', 'GW', 2), ('K1c', 'GW', 3), ('K1c', 'GW', 4), ('K1c', 'GW', 5), ('K1c', 'GW', 6), ('K1c', 'GW', 7), ('K1c', 'GW', 8), ('K1c', 'GW', 9), ('K1c', 'GW', 10), ('K1c', 'GW', 11), ('K1c', 'GW', 12), ('K1c', 'GW', 13), ('K1c', 'GW', 14), ('K1c', 'GW', 15), ('K1c', 'GW', 16), ('K1c', 'EL', 1), ('K1c', 'EL', 2), ('K1c', 'EL', 3), ('K1c', 'EL', 4), ('K1c', 'EL', 5), ('K1c', 'EL', 6), ('K1c', 'EL', 7), ('K1c', 'EL', 8), ('K1c', 'EL', 9), ('K1c', 'EL', 10), ('K1d', 'GW', 1), ('K1d', 'GW', 2), ('K1d', 'GW', 3), ('K1d', 'GW', 4), ('K1d', 'GW', 5), ('K1d', 'GW', 6), ('K1d', 'GW', 7), ('K1d', 'GW', 8), ('K1d', 'GW', 9), ('K1d', 'GW', 10), ('K1d', 'GW', 11), ('K1d', 'GW', 12), ('K1d', 'GW', 13), ('K1d', 'GW', 14), ('K1d', 'GW', 15), ('K1d', 'GW', 16), ('K1d', 'EL', 1), ('K1d', 'EL', 2), ('K1d', 'EL', 3), ('K1d', 'EL', 4), ('K1d', 'EL', 5), ('K1d', 'EL', 6), ('K1d', 'EL', 7), ('K1d', 'EL', 8), ('K1d', 'EL', 9), ('K1d', 'EL', 10), ('K2a', 'GW', 1), ('K2a', 'GW', 2), ('K2a', 'GW', 3), ('K2a', 'GW', 4), ('K2a', 'GW', 5), ('K2a', 'GW', 6), ('K2a', 'GW', 7), ('K2a', 'GW', 8), ('K2a', 'GW', 9), ('K2a', 'GW', 10), ('K2a', 'GW', 11), ('K2a', 'GW', 12), ('K2a', 'GW', 13), ('K2a', 'GW', 14), ('K2a', 'GW', 15), ('K2a', 'GW', 16), ('K2a', 'EL', 1), ('K2a', 'EL', 2), ('K2a', 'EL', 3), ('K2a', 'EL', 4), ('K2a', 'EL', 5), ('K2a', 'EL', 6), ('K2a', 'EL', 7), ('K2a', 'EL', 8), ('K2a', 'EL', 9), ('K2a', 'EL', 10), ('K2b', 'GW', 1), ('K2b', 'GW', 2), ('K2b', 'GW', 3), ('K2b', 'GW', 4), ('K2b', 'GW', 5), ('K2b', 'GW', 6), ('K2b', 'GW', 7), ('K2b', 'GW', 8), ('K2b', 'GW', 9), ('K2b', 'GW', 10), ('K2b', 'GW', 11), ('K2b', 'GW', 12), ('K2b', 'GW', 13), ('K2b', 'GW', 14), ('K2b', 'GW', 15), ('K2b', 'GW', 16), ('K2b', 'EL', 1), ('K2b', 'EL', 2), ('K2b', 'EL', 3), ('K2b', 'EL', 4), ('K2b', 'EL', 5), ('K2b', 'EL', 6), ('K2b', 'EL', 7), ('K2b', 'EL', 8), ('K2b', 'EL', 9), ('K2b', 'EL', 10), ('K3', 'GW', 1), ('K3', 'GW', 2), ('K3', 'GW', 3), ('K3', 'GW', 4), ('K3', 'GW', 5), ('K3', 'GW', 6), ('K3', 'GW', 7), ('K3', 'GW', 8), ('K3', 'GW', 9), ('K3', 'GW', 10), ('K3', 'GW', 11), ('K3', 'GW', 12), ('K3', 'GW', 13), ('K3', 'GW', 14), ('K3', 'GW', 15), ('K3', 'GW', 16), ('K3', 'EL', 1), ('K3', 'EL', 2), ('K3', 'EL', 3), ('K3', 'EL', 4), ('K3', 'EL', 5), ('K3', 'EL', 6), ('K3', 'EL', 7), ('K3', 'EL', 8), ('K3', 'EL', 9), ('K3', 'EL', 10), ('K4', 'GW', 1), ('K4', 'GW', 2), ('K4', 'GW', 3), ('K4', 'GW', 4), ('K4', 'GW', 5), ('K4', 'GW', 6), ('K4', 'GW', 7), ('K4', 'GW', 8), ('K4', 'GW', 9), ('K4', 'GW', 10), ('K4', 'GW', 11), ('K4', 'GW', 12), ('K4', 'GW', 13), ('K4', 'GW', 14), ('K4', 'GW', 15), ('K4', 'GW', 16), ('K4', 'EL', 1), ('K4', 'EL', 2), ('K4', 'EL', 3), ('K4', 'EL', 4), ('K4', 'EL', 5), ('K4', 'EL', 6), ('K4', 'EL', 7), ('K4', 'EL', 8), ('K4', 'EL', 9), ('K4', 'EL', 10), ('K5', 'GW', 1), ('K5', 'GW', 2), ('K5', 'GW', 3), ('K5', 'GW', 4), ('K5', 'GW', 5), ('K5', 'GW', 6), ('K5', 'GW', 7), ('K5', 'GW', 8), ('K5', 'GW', 9), ('K5', 'GW', 10), ('K5', 'GW', 11), ('K5', 'GW', 12), ('K5', 'GW', 13), ('K5', 'GW', 14), ('K5', 'GW', 15), ('K5', 'GW', 16), ('K5', 'EL', 1), ('K5', 'EL', 2), ('K5', 'EL', 3), ('K5', 'EL', 4), ('K5', 'EL', 5), ('K5', 'EL', 6), ('K5', 'EL', 7), ('K5', 'EL', 8), ('K5', 'EL', 9), ('K5', 'EL', 10), ('K6', 'GW', 1), ('K6', 'GW', 2), ('K6', 'GW', 3), ('K6', 'GW', 4), ('K6', 'GW', 5), ('K6', 'GW', 6), ('K6', 'GW', 7), ('K6', 'GW', 8), ('K6', 'GW', 9), ('K6', 'GW', 10), ('K6', 'GW', 11), ('K6', 'GW', 12), ('K6', 'GW', 13), ('K6', 'GW', 14), ('K6', 'GW', 15), ('K6', 'GW', 16), ('K6', 'EL', 1), ('K6', 'EL', 2), ('K6', 'EL', 3), ('K6', 'EL', 4), ('K6', 'EL', 5), ('K6', 'EL', 6), ('K6', 'EL', 7), ('K6', 'EL', 8), ('K6', 'EL', 9), ('K6', 'EL', 10), ('K6a', 'GW', 1), ('K6a', 'GW', 2), ('K6a', 'GW', 3), ('K6a', 'GW', 4), ('K6a', 'GW', 5), ('K6a', 'GW', 6), ('K6a', 'GW', 7), ('K6a', 'GW', 8), ('K6a', 'GW', 9), ('K6a', 'GW', 10), ('K6a', 'GW', 11), ('K6a', 'GW', 12), ('K6a', 'GW', 13), ('K6a', 'GW', 14), ('K6a', 'GW', 15), ('K6a', 'GW', 16), ('K6a', 'EL', 1), ('K6a', 'EL', 2), ('K6a', 'EL', 3), ('K6a', 'EL', 4), ('K6a', 'EL', 5), ('K6a', 'EL', 6), ('K6a', 'EL', 7), ('K6a', 'EL', 8), ('K6a', 'EL', 9), ('K6a', 'EL', 10), ('K6b', 'GW', 1), ('K6b', 'GW', 2), ('K6b', 'GW', 3), ('K6b', 'GW', 4), ('K6b', 'GW', 5), ('K6b', 'GW', 6), ('K6b', 'GW', 7), ('K6b', 'GW', 8), ('K6b', 'GW', 9), ('K6b', 'GW', 10), ('K6b', 'GW', 11), ('K6b', 'GW', 12), ('K6b', 'GW', 13), ('K6b', 'GW', 14), ('K6b', 'GW', 15), ('K6b', 'GW', 16), ('K6b', 'EL', 1), ('K6b', 'EL', 2), ('K6b', 'EL', 3), ('K6b', 'EL', 4), ('K6b', 'EL', 5), ('K6b', 'EL', 6), ('K6b', 'EL', 7), ('K6b', 'EL', 8), ('K6b', 'EL', 9), ('K6b', 'EL', 10), ('K6c', 'GW', 1), ('K6c', 'GW', 2), ('K6c', 'GW', 3), ('K6c', 'GW', 4), ('K6c', 'GW', 5), ('K6c', 'GW', 6), ('K6c', 'GW', 7), ('K6c', 'GW', 8), ('K6c', 'GW', 9), ('K6c', 'GW', 10), ('K6c', 'GW', 11), ('K6c', 'GW', 12), ('K6c', 'GW', 13), ('K6c', 'GW', 14), ('K6c', 'GW', 15), ('K6c', 'GW', 16), ('K6c', 'EL', 1), ('K6c', 'EL', 2), ('K6c', 'EL', 3), ('K6c', 'EL', 4), ('K6c', 'EL', 5), ('K6c', 'EL', 6), ('K6c', 'EL', 7), ('K6c', 'EL', 8), ('K6c', 'EL', 9), ('K6c', 'EL', 10), ('K7', 'GW', 1), ('K7', 'GW', 2), ('K7', 'GW', 3), ('K7', 'GW', 4), ('K7', 'GW', 5), ('K7', 'GW', 6), ('K7', 'GW', 7), ('K7', 'GW', 8), ('K7', 'GW', 9), ('K7', 'GW', 10), ('K7', 'GW', 11), ('K7', 'GW', 12), ('K7', 'GW', 13), ('K7', 'GW', 14), ('K7', 'GW', 15), ('K7', 'GW', 16), ('K7', 'EL', 1), ('K7', 'EL', 2), ('K7', 'EL', 3), ('K7', 'EL', 4), ('K7', 'EL', 5), ('K7', 'EL', 6), ('K7', 'EL', 7), ('K7', 'EL', 8), ('K7', 'EL', 9), ('K7', 'EL', 10)}
+    al_task_index : Size=1, Index=None, Ordered=True
+        Key  : Dimen : Domain : Size : Members
+        None :     2 :    K*M :   28 : {('K1a', 'GW'), ('K1a', 'EL'), ('K1b', 'GW'), ('K1b', 'EL'), ('K1c', 'GW'), ('K1c', 'EL'), ('K1d', 'GW'), ('K1d', 'EL'), ('K2a', 'GW'), ('K2a', 'EL'), ('K2b', 'GW'), ('K2b', 'EL'), ('K3', 'GW'), ('K3', 'EL'), ('K4', 'GW'), ('K4', 'EL'), ('K5', 'GW'), ('K5', 'EL'), ('K6', 'GW'), ('K6', 'EL'), ('K6a', 'GW'), ('K6a', 'EL'), ('K6b', 'GW'), ('K6b', 'EL'), ('K6c', 'GW'), ('K6c', 'EL'), ('K7', 'GW'), ('K7', 'EL')}
+    c01_index : Size=1, Index=None, Ordered=True
+        Key  : Dimen : Domain : Size : Members
+        None :     2 :    K*M :   28 : {('K1a', 'GW'), ('K1a', 'EL'), ('K1b', 'GW'), ('K1b', 'EL'), ('K1c', 'GW'), ('K1c', 'EL'), ('K1d', 'GW'), ('K1d', 'EL'), ('K2a', 'GW'), ('K2a', 'EL'), ('K2b', 'GW'), ('K2b', 'EL'), ('K3', 'GW'), ('K3', 'EL'), ('K4', 'GW'), ('K4', 'EL'), ('K5', 'GW'), ('K5', 'EL'), ('K6', 'GW'), ('K6', 'EL'), ('K6a', 'GW'), ('K6a', 'EL'), ('K6b', 'GW'), ('K6b', 'EL'), ('K6c', 'GW'), ('K6c', 'EL'), ('K7', 'GW'), ('K7', 'EL')}
+
+6 Param Declarations
+    M_Count : Size=2, Index=M, Domain=Any, Default=None, Mutable=False
+        Key : Value
+         EL :     1
+         GW :     2
+    N_crafter : Size=2, Index=M, Domain=Any, Default=None, Mutable=False
+        Key : Value
+         EL :     5
+         GW :     8
+    T_day_end : Size=2, Index=M, Domain=Any, Default=None, Mutable=False
+        Key : Value
+         EL :  14.0
+         GW :  16.0
+    T_day_start : Size=2, Index=M, Domain=Any, Default=None, Mutable=False
+        Key : Value
+         EL :   9.0
+         GW :   8.0
+    U_WORKDAY : Size=2, Index=M, Domain=Any, Default=None, Mutable=False
+        Key : Value
+         EL :   5.0
+         GW :   8.0
+    U_exec : Size=14, Index=U_exec_index, Domain=Any, Default=None, Mutable=False
+        Key           : Value
+        ('K1a', 'GW') :  0.25
+        ('K1b', 'GW') :   0.5
+        ('K1c', 'GW') :  0.75
+        ('K1d', 'GW') :  0.75
+        ('K2a', 'GW') :   0.5
+        ('K2b', 'GW') :  0.75
+         ('K3', 'GW') :   0.5
+         ('K4', 'GW') :  0.75
+         ('K5', 'GW') :  0.75
+         ('K6', 'EL') :   1.5
+        ('K6a', 'EL') :   1.2
+        ('K6b', 'EL') :   0.5
+        ('K6c', 'EL') :  0.25
+         ('K7', 'GW') :  1.25
+
+9 Var Declarations
+    al : Size=364, Index=al_index
+        Key               : Lower : Value : Upper : Fixed : Stale : Domain
+         ('K1a', 'EL', 1) :     0 :  None :     1 : False :  True : Binary
+         ('K1a', 'EL', 2) :     0 :  None :     1 : False :  True : Binary
+         ('K1a', 'EL', 3) :     0 :  None :     1 : False :  True : Binary
+         ('K1a', 'EL', 4) :     0 :  None :     1 : False :  True : Binary
+         ('K1a', 'EL', 5) :     0 :  None :     1 : False :  True : Binary
+         ('K1a', 'EL', 6) :     0 :  None :     1 : False :  True : Binary
+         ('K1a', 'EL', 7) :     0 :  None :     1 : False :  True : Binary
+         ('K1a', 'EL', 8) :     0 :  None :     1 : False :  True : Binary
+         ('K1a', 'EL', 9) :     0 :  None :     1 : False :  True : Binary
+        ('K1a', 'EL', 10) :     0 :  None :     1 : False :  True : Binary
+         ('K1a', 'GW', 1) :     0 :  None :     1 : False :  True : Binary
+         ('K1a', 'GW', 2) :     0 :  None :     1 : False :  True : Binary
+         ('K1a', 'GW', 3) :     0 :  None :     1 : False :  True : Binary
+         ('K1a', 'GW', 4) :     0 :  None :     1 : False :  True : Binary
+         ('K1a', 'GW', 5) :     0 :  None :     1 : False :  True : Binary
+         ('K1a', 'GW', 6) :     0 :  None :     1 : False :  True : Binary
+         ('K1a', 'GW', 7) :     0 :  None :     1 : False :  True : Binary
+         ('K1a', 'GW', 8) :     0 :  None :     1 : False :  True : Binary
+         ('K1a', 'GW', 9) :     0 :  None :     1 : False :  True : Binary
+        ('K1a', 'GW', 10) :     0 :  None :     1 : False :  True : Binary
+        ('K1a', 'GW', 11) :     0 :  None :     1 : False :  True : Binary
+        ('K1a', 'GW', 12) :     0 :  None :     1 : False :  True : Binary
+        ('K1a', 'GW', 13) :     0 :  None :     1 : False :  True : Binary
+        ('K1a', 'GW', 14) :     0 :  None :     1 : False :  True : Binary
+        ('K1a', 'GW', 15) :     0 :  None :     1 : False :  True : Binary
+        ('K1a', 'GW', 16) :     0 :  None :     1 : False :  True : Binary
+         ('K1b', 'EL', 1) :     0 :  None :     1 : False :  True : Binary
+         ('K1b', 'EL', 2) :     0 :  None :     1 : False :  True : Binary
+         ('K1b', 'EL', 3) :     0 :  None :     1 : False :  True : Binary
+         ('K1b', 'EL', 4) :     0 :  None :     1 : False :  True : Binary
+         ('K1b', 'EL', 5) :     0 :  None :     1 : False :  True : Binary
+         ('K1b', 'EL', 6) :     0 :  None :     1 : False :  True : Binary
+         ('K1b', 'EL', 7) :     0 :  None :     1 : False :  True : Binary
+         ('K1b', 'EL', 8) :     0 :  None :     1 : False :  True : Binary
+         ('K1b', 'EL', 9) :     0 :  None :     1 : False :  True : Binary
+        ('K1b', 'EL', 10) :     0 :  None :     1 : False :  True : Binary
+         ('K1b', 'GW', 1) :     0 :  None :     1 : False :  True : Binary
+         ('K1b', 'GW', 2) :     0 :  None :     1 : False :  True : Binary
+         ('K1b', 'GW', 3) :     0 :  None :     1 : False :  True : Binary
+         ('K1b', 'GW', 4) :     0 :  None :     1 : False :  True : Binary
+         ('K1b', 'GW', 5) :     0 :  None :     1 : False :  True : Binary
+         ('K1b', 'GW', 6) :     0 :  None :     1 : False :  True : Binary
+         ('K1b', 'GW', 7) :     0 :  None :     1 : False :  True : Binary
+         ('K1b', 'GW', 8) :     0 :  None :     1 : False :  True : Binary
+         ('K1b', 'GW', 9) :     0 :  None :     1 : False :  True : Binary
+        ('K1b', 'GW', 10) :     0 :  None :     1 : False :  True : Binary
+        ('K1b', 'GW', 11) :     0 :  None :     1 : False :  True : Binary
+        ('K1b', 'GW', 12) :     0 :  None :     1 : False :  True : Binary
+        ('K1b', 'GW', 13) :     0 :  None :     1 : False :  True : Binary
+        ('K1b', 'GW', 14) :     0 :  None :     1 : False :  True : Binary
+        ('K1b', 'GW', 15) :     0 :  None :     1 : False :  True : Binary
+        ('K1b', 'GW', 16) :     0 :  None :     1 : False :  True : Binary
+         ('K1c', 'EL', 1) :     0 :  None :     1 : False :  True : Binary
+         ('K1c', 'EL', 2) :     0 :  None :     1 : False :  True : Binary
+         ('K1c', 'EL', 3) :     0 :  None :     1 : False :  True : Binary
+         ('K1c', 'EL', 4) :     0 :  None :     1 : False :  True : Binary
+         ('K1c', 'EL', 5) :     0 :  None :     1 : False :  True : Binary
+         ('K1c', 'EL', 6) :     0 :  None :     1 : False :  True : Binary
+         ('K1c', 'EL', 7) :     0 :  None :     1 : False :  True : Binary
+         ('K1c', 'EL', 8) :     0 :  None :     1 : False :  True : Binary
+         ('K1c', 'EL', 9) :     0 :  None :     1 : False :  True : Binary
+        ('K1c', 'EL', 10) :     0 :  None :     1 : False :  True : Binary
+         ('K1c', 'GW', 1) :     0 :  None :     1 : False :  True : Binary
+         ('K1c', 'GW', 2) :     0 :  None :     1 : False :  True : Binary
+         ('K1c', 'GW', 3) :     0 :  None :     1 : False :  True : Binary
+         ('K1c', 'GW', 4) :     0 :  None :     1 : False :  True : Binary
+         ('K1c', 'GW', 5) :     0 :  None :     1 : False :  True : Binary
+         ('K1c', 'GW', 6) :     0 :  None :     1 : False :  True : Binary
+         ('K1c', 'GW', 7) :     0 :  None :     1 : False :  True : Binary
+         ('K1c', 'GW', 8) :     0 :  None :     1 : False :  True : Binary
+         ('K1c', 'GW', 9) :     0 :  None :     1 : False :  True : Binary
+        ('K1c', 'GW', 10) :     0 :  None :     1 : False :  True : Binary
+        ('K1c', 'GW', 11) :     0 :  None :     1 : False :  True : Binary
+        ('K1c', 'GW', 12) :     0 :  None :     1 : False :  True : Binary
+        ('K1c', 'GW', 13) :     0 :  None :     1 : False :  True : Binary
+        ('K1c', 'GW', 14) :     0 :  None :     1 : False :  True : Binary
+        ('K1c', 'GW', 15) :     0 :  None :     1 : False :  True : Binary
+        ('K1c', 'GW', 16) :     0 :  None :     1 : False :  True : Binary
+         ('K1d', 'EL', 1) :     0 :  None :     1 : False :  True : Binary
+         ('K1d', 'EL', 2) :     0 :  None :     1 : False :  True : Binary
+         ('K1d', 'EL', 3) :     0 :  None :     1 : False :  True : Binary
+         ('K1d', 'EL', 4) :     0 :  None :     1 : False :  True : Binary
+         ('K1d', 'EL', 5) :     0 :  None :     1 : False :  True : Binary
+         ('K1d', 'EL', 6) :     0 :  None :     1 : False :  True : Binary
+         ('K1d', 'EL', 7) :     0 :  None :     1 : False :  True : Binary
+         ('K1d', 'EL', 8) :     0 :  None :     1 : False :  True : Binary
+         ('K1d', 'EL', 9) :     0 :  None :     1 : False :  True : Binary
+        ('K1d', 'EL', 10) :     0 :  None :     1 : False :  True : Binary
+         ('K1d', 'GW', 1) :     0 :  None :     1 : False :  True : Binary
+         ('K1d', 'GW', 2) :     0 :  None :     1 : False :  True : Binary
+         ('K1d', 'GW', 3) :     0 :  None :     1 : False :  True : Binary
+         ('K1d', 'GW', 4) :     0 :  None :     1 : False :  True : Binary
+         ('K1d', 'GW', 5) :     0 :  None :     1 : False :  True : Binary
+         ('K1d', 'GW', 6) :     0 :  None :     1 : False :  True : Binary
+         ('K1d', 'GW', 7) :     0 :  None :     1 : False :  True : Binary
+         ('K1d', 'GW', 8) :     0 :  None :     1 : False :  True : Binary
+         ('K1d', 'GW', 9) :     0 :  None :     1 : False :  True : Binary
+        ('K1d', 'GW', 10) :     0 :  None :     1 : False :  True : Binary
+        ('K1d', 'GW', 11) :     0 :  None :     1 : False :  True : Binary
+        ('K1d', 'GW', 12) :     0 :  None :     1 : False :  True : Binary
+        ('K1d', 'GW', 13) :     0 :  None :     1 : False :  True : Binary
+        ('K1d', 'GW', 14) :     0 :  None :     1 : False :  True : Binary
+        ('K1d', 'GW', 15) :     0 :  None :     1 : False :  True : Binary
+        ('K1d', 'GW', 16) :     0 :  None :     1 : False :  True : Binary
+         ('K2a', 'EL', 1) :     0 :  None :     1 : False :  True : Binary
+         ('K2a', 'EL', 2) :     0 :  None :     1 : False :  True : Binary
+         ('K2a', 'EL', 3) :     0 :  None :     1 : False :  True : Binary
+         ('K2a', 'EL', 4) :     0 :  None :     1 : False :  True : Binary
+         ('K2a', 'EL', 5) :     0 :  None :     1 : False :  True : Binary
+         ('K2a', 'EL', 6) :     0 :  None :     1 : False :  True : Binary
+         ('K2a', 'EL', 7) :     0 :  None :     1 : False :  True : Binary
+         ('K2a', 'EL', 8) :     0 :  None :     1 : False :  True : Binary
+         ('K2a', 'EL', 9) :     0 :  None :     1 : False :  True : Binary
+        ('K2a', 'EL', 10) :     0 :  None :     1 : False :  True : Binary
+         ('K2a', 'GW', 1) :     0 :  None :     1 : False :  True : Binary
+         ('K2a', 'GW', 2) :     0 :  None :     1 : False :  True : Binary
+         ('K2a', 'GW', 3) :     0 :  None :     1 : False :  True : Binary
+         ('K2a', 'GW', 4) :     0 :  None :     1 : False :  True : Binary
+         ('K2a', 'GW', 5) :     0 :  None :     1 : False :  True : Binary
+         ('K2a', 'GW', 6) :     0 :  None :     1 : False :  True : Binary
+         ('K2a', 'GW', 7) :     0 :  None :     1 : False :  True : Binary
+         ('K2a', 'GW', 8) :     0 :  None :     1 : False :  True : Binary
+         ('K2a', 'GW', 9) :     0 :  None :     1 : False :  True : Binary
+        ('K2a', 'GW', 10) :     0 :  None :     1 : False :  True : Binary
+        ('K2a', 'GW', 11) :     0 :  None :     1 : False :  True : Binary
+        ('K2a', 'GW', 12) :     0 :  None :     1 : False :  True : Binary
+        ('K2a', 'GW', 13) :     0 :  None :     1 : False :  True : Binary
+        ('K2a', 'GW', 14) :     0 :  None :     1 : False :  True : Binary
+        ('K2a', 'GW', 15) :     0 :  None :     1 : False :  True : Binary
+        ('K2a', 'GW', 16) :     0 :  None :     1 : False :  True : Binary
+         ('K2b', 'EL', 1) :     0 :  None :     1 : False :  True : Binary
+         ('K2b', 'EL', 2) :     0 :  None :     1 : False :  True : Binary
+         ('K2b', 'EL', 3) :     0 :  None :     1 : False :  True : Binary
+         ('K2b', 'EL', 4) :     0 :  None :     1 : False :  True : Binary
+         ('K2b', 'EL', 5) :     0 :  None :     1 : False :  True : Binary
+         ('K2b', 'EL', 6) :     0 :  None :     1 : False :  True : Binary
+         ('K2b', 'EL', 7) :     0 :  None :     1 : False :  True : Binary
+         ('K2b', 'EL', 8) :     0 :  None :     1 : False :  True : Binary
+         ('K2b', 'EL', 9) :     0 :  None :     1 : False :  True : Binary
+        ('K2b', 'EL', 10) :     0 :  None :     1 : False :  True : Binary
+         ('K2b', 'GW', 1) :     0 :  None :     1 : False :  True : Binary
+         ('K2b', 'GW', 2) :     0 :  None :     1 : False :  True : Binary
+         ('K2b', 'GW', 3) :     0 :  None :     1 : False :  True : Binary
+         ('K2b', 'GW', 4) :     0 :  None :     1 : False :  True : Binary
+         ('K2b', 'GW', 5) :     0 :  None :     1 : False :  True : Binary
+         ('K2b', 'GW', 6) :     0 :  None :     1 : False :  True : Binary
+         ('K2b', 'GW', 7) :     0 :  None :     1 : False :  True : Binary
+         ('K2b', 'GW', 8) :     0 :  None :     1 : False :  True : Binary
+         ('K2b', 'GW', 9) :     0 :  None :     1 : False :  True : Binary
+        ('K2b', 'GW', 10) :     0 :  None :     1 : False :  True : Binary
+        ('K2b', 'GW', 11) :     0 :  None :     1 : False :  True : Binary
+        ('K2b', 'GW', 12) :     0 :  None :     1 : False :  True : Binary
+        ('K2b', 'GW', 13) :     0 :  None :     1 : False :  True : Binary
+        ('K2b', 'GW', 14) :     0 :  None :     1 : False :  True : Binary
+        ('K2b', 'GW', 15) :     0 :  None :     1 : False :  True : Binary
+        ('K2b', 'GW', 16) :     0 :  None :     1 : False :  True : Binary
+          ('K3', 'EL', 1) :     0 :  None :     1 : False :  True : Binary
+          ('K3', 'EL', 2) :     0 :  None :     1 : False :  True : Binary
+          ('K3', 'EL', 3) :     0 :  None :     1 : False :  True : Binary
+          ('K3', 'EL', 4) :     0 :  None :     1 : False :  True : Binary
+          ('K3', 'EL', 5) :     0 :  None :     1 : False :  True : Binary
+          ('K3', 'EL', 6) :     0 :  None :     1 : False :  True : Binary
+          ('K3', 'EL', 7) :     0 :  None :     1 : False :  True : Binary
+          ('K3', 'EL', 8) :     0 :  None :     1 : False :  True : Binary
+          ('K3', 'EL', 9) :     0 :  None :     1 : False :  True : Binary
+         ('K3', 'EL', 10) :     0 :  None :     1 : False :  True : Binary
+          ('K3', 'GW', 1) :     0 :  None :     1 : False :  True : Binary
+          ('K3', 'GW', 2) :     0 :  None :     1 : False :  True : Binary
+          ('K3', 'GW', 3) :     0 :  None :     1 : False :  True : Binary
+          ('K3', 'GW', 4) :     0 :  None :     1 : False :  True : Binary
+          ('K3', 'GW', 5) :     0 :  None :     1 : False :  True : Binary
+          ('K3', 'GW', 6) :     0 :  None :     1 : False :  True : Binary
+          ('K3', 'GW', 7) :     0 :  None :     1 : False :  True : Binary
+          ('K3', 'GW', 8) :     0 :  None :     1 : False :  True : Binary
+          ('K3', 'GW', 9) :     0 :  None :     1 : False :  True : Binary
+         ('K3', 'GW', 10) :     0 :  None :     1 : False :  True : Binary
+         ('K3', 'GW', 11) :     0 :  None :     1 : False :  True : Binary
+         ('K3', 'GW', 12) :     0 :  None :     1 : False :  True : Binary
+         ('K3', 'GW', 13) :     0 :  None :     1 : False :  True : Binary
+         ('K3', 'GW', 14) :     0 :  None :     1 : False :  True : Binary
+         ('K3', 'GW', 15) :     0 :  None :     1 : False :  True : Binary
+         ('K3', 'GW', 16) :     0 :  None :     1 : False :  True : Binary
+          ('K4', 'EL', 1) :     0 :  None :     1 : False :  True : Binary
+          ('K4', 'EL', 2) :     0 :  None :     1 : False :  True : Binary
+          ('K4', 'EL', 3) :     0 :  None :     1 : False :  True : Binary
+          ('K4', 'EL', 4) :     0 :  None :     1 : False :  True : Binary
+          ('K4', 'EL', 5) :     0 :  None :     1 : False :  True : Binary
+          ('K4', 'EL', 6) :     0 :  None :     1 : False :  True : Binary
+          ('K4', 'EL', 7) :     0 :  None :     1 : False :  True : Binary
+          ('K4', 'EL', 8) :     0 :  None :     1 : False :  True : Binary
+          ('K4', 'EL', 9) :     0 :  None :     1 : False :  True : Binary
+         ('K4', 'EL', 10) :     0 :  None :     1 : False :  True : Binary
+          ('K4', 'GW', 1) :     0 :  None :     1 : False :  True : Binary
+          ('K4', 'GW', 2) :     0 :  None :     1 : False :  True : Binary
+          ('K4', 'GW', 3) :     0 :  None :     1 : False :  True : Binary
+          ('K4', 'GW', 4) :     0 :  None :     1 : False :  True : Binary
+          ('K4', 'GW', 5) :     0 :  None :     1 : False :  True : Binary
+          ('K4', 'GW', 6) :     0 :  None :     1 : False :  True : Binary
+          ('K4', 'GW', 7) :     0 :  None :     1 : False :  True : Binary
+          ('K4', 'GW', 8) :     0 :  None :     1 : False :  True : Binary
+          ('K4', 'GW', 9) :     0 :  None :     1 : False :  True : Binary
+         ('K4', 'GW', 10) :     0 :  None :     1 : False :  True : Binary
+         ('K4', 'GW', 11) :     0 :  None :     1 : False :  True : Binary
+         ('K4', 'GW', 12) :     0 :  None :     1 : False :  True : Binary
+         ('K4', 'GW', 13) :     0 :  None :     1 : False :  True : Binary
+         ('K4', 'GW', 14) :     0 :  None :     1 : False :  True : Binary
+         ('K4', 'GW', 15) :     0 :  None :     1 : False :  True : Binary
+         ('K4', 'GW', 16) :     0 :  None :     1 : False :  True : Binary
+          ('K5', 'EL', 1) :     0 :  None :     1 : False :  True : Binary
+          ('K5', 'EL', 2) :     0 :  None :     1 : False :  True : Binary
+          ('K5', 'EL', 3) :     0 :  None :     1 : False :  True : Binary
+          ('K5', 'EL', 4) :     0 :  None :     1 : False :  True : Binary
+          ('K5', 'EL', 5) :     0 :  None :     1 : False :  True : Binary
+          ('K5', 'EL', 6) :     0 :  None :     1 : False :  True : Binary
+          ('K5', 'EL', 7) :     0 :  None :     1 : False :  True : Binary
+          ('K5', 'EL', 8) :     0 :  None :     1 : False :  True : Binary
+          ('K5', 'EL', 9) :     0 :  None :     1 : False :  True : Binary
+         ('K5', 'EL', 10) :     0 :  None :     1 : False :  True : Binary
+          ('K5', 'GW', 1) :     0 :  None :     1 : False :  True : Binary
+          ('K5', 'GW', 2) :     0 :  None :     1 : False :  True : Binary
+          ('K5', 'GW', 3) :     0 :  None :     1 : False :  True : Binary
+          ('K5', 'GW', 4) :     0 :  None :     1 : False :  True : Binary
+          ('K5', 'GW', 5) :     0 :  None :     1 : False :  True : Binary
+          ('K5', 'GW', 6) :     0 :  None :     1 : False :  True : Binary
+          ('K5', 'GW', 7) :     0 :  None :     1 : False :  True : Binary
+          ('K5', 'GW', 8) :     0 :  None :     1 : False :  True : Binary
+          ('K5', 'GW', 9) :     0 :  None :     1 : False :  True : Binary
+         ('K5', 'GW', 10) :     0 :  None :     1 : False :  True : Binary
+         ('K5', 'GW', 11) :     0 :  None :     1 : False :  True : Binary
+         ('K5', 'GW', 12) :     0 :  None :     1 : False :  True : Binary
+         ('K5', 'GW', 13) :     0 :  None :     1 : False :  True : Binary
+         ('K5', 'GW', 14) :     0 :  None :     1 : False :  True : Binary
+         ('K5', 'GW', 15) :     0 :  None :     1 : False :  True : Binary
+         ('K5', 'GW', 16) :     0 :  None :     1 : False :  True : Binary
+          ('K6', 'EL', 1) :     0 :  None :     1 : False :  True : Binary
+          ('K6', 'EL', 2) :     0 :  None :     1 : False :  True : Binary
+          ('K6', 'EL', 3) :     0 :  None :     1 : False :  True : Binary
+          ('K6', 'EL', 4) :     0 :  None :     1 : False :  True : Binary
+          ('K6', 'EL', 5) :     0 :  None :     1 : False :  True : Binary
+          ('K6', 'EL', 6) :     0 :  None :     1 : False :  True : Binary
+          ('K6', 'EL', 7) :     0 :  None :     1 : False :  True : Binary
+          ('K6', 'EL', 8) :     0 :  None :     1 : False :  True : Binary
+          ('K6', 'EL', 9) :     0 :  None :     1 : False :  True : Binary
+         ('K6', 'EL', 10) :     0 :  None :     1 : False :  True : Binary
+          ('K6', 'GW', 1) :     0 :  None :     1 : False :  True : Binary
+          ('K6', 'GW', 2) :     0 :  None :     1 : False :  True : Binary
+          ('K6', 'GW', 3) :     0 :  None :     1 : False :  True : Binary
+          ('K6', 'GW', 4) :     0 :  None :     1 : False :  True : Binary
+          ('K6', 'GW', 5) :     0 :  None :     1 : False :  True : Binary
+          ('K6', 'GW', 6) :     0 :  None :     1 : False :  True : Binary
+          ('K6', 'GW', 7) :     0 :  None :     1 : False :  True : Binary
+          ('K6', 'GW', 8) :     0 :  None :     1 : False :  True : Binary
+          ('K6', 'GW', 9) :     0 :  None :     1 : False :  True : Binary
+         ('K6', 'GW', 10) :     0 :  None :     1 : False :  True : Binary
+         ('K6', 'GW', 11) :     0 :  None :     1 : False :  True : Binary
+         ('K6', 'GW', 12) :     0 :  None :     1 : False :  True : Binary
+         ('K6', 'GW', 13) :     0 :  None :     1 : False :  True : Binary
+         ('K6', 'GW', 14) :     0 :  None :     1 : False :  True : Binary
+         ('K6', 'GW', 15) :     0 :  None :     1 : False :  True : Binary
+         ('K6', 'GW', 16) :     0 :  None :     1 : False :  True : Binary
+         ('K6a', 'EL', 1) :     0 :  None :     1 : False :  True : Binary
+         ('K6a', 'EL', 2) :     0 :  None :     1 : False :  True : Binary
+         ('K6a', 'EL', 3) :     0 :  None :     1 : False :  True : Binary
+         ('K6a', 'EL', 4) :     0 :  None :     1 : False :  True : Binary
+         ('K6a', 'EL', 5) :     0 :  None :     1 : False :  True : Binary
+         ('K6a', 'EL', 6) :     0 :  None :     1 : False :  True : Binary
+         ('K6a', 'EL', 7) :     0 :  None :     1 : False :  True : Binary
+         ('K6a', 'EL', 8) :     0 :  None :     1 : False :  True : Binary
+         ('K6a', 'EL', 9) :     0 :  None :     1 : False :  True : Binary
+        ('K6a', 'EL', 10) :     0 :  None :     1 : False :  True : Binary
+         ('K6a', 'GW', 1) :     0 :  None :     1 : False :  True : Binary
+         ('K6a', 'GW', 2) :     0 :  None :     1 : False :  True : Binary
+         ('K6a', 'GW', 3) :     0 :  None :     1 : False :  True : Binary
+         ('K6a', 'GW', 4) :     0 :  None :     1 : False :  True : Binary
+         ('K6a', 'GW', 5) :     0 :  None :     1 : False :  True : Binary
+         ('K6a', 'GW', 6) :     0 :  None :     1 : False :  True : Binary
+         ('K6a', 'GW', 7) :     0 :  None :     1 : False :  True : Binary
+         ('K6a', 'GW', 8) :     0 :  None :     1 : False :  True : Binary
+         ('K6a', 'GW', 9) :     0 :  None :     1 : False :  True : Binary
+        ('K6a', 'GW', 10) :     0 :  None :     1 : False :  True : Binary
+        ('K6a', 'GW', 11) :     0 :  None :     1 : False :  True : Binary
+        ('K6a', 'GW', 12) :     0 :  None :     1 : False :  True : Binary
+        ('K6a', 'GW', 13) :     0 :  None :     1 : False :  True : Binary
+        ('K6a', 'GW', 14) :     0 :  None :     1 : False :  True : Binary
+        ('K6a', 'GW', 15) :     0 :  None :     1 : False :  True : Binary
+        ('K6a', 'GW', 16) :     0 :  None :     1 : False :  True : Binary
+         ('K6b', 'EL', 1) :     0 :  None :     1 : False :  True : Binary
+         ('K6b', 'EL', 2) :     0 :  None :     1 : False :  True : Binary
+         ('K6b', 'EL', 3) :     0 :  None :     1 : False :  True : Binary
+         ('K6b', 'EL', 4) :     0 :  None :     1 : False :  True : Binary
+         ('K6b', 'EL', 5) :     0 :  None :     1 : False :  True : Binary
+         ('K6b', 'EL', 6) :     0 :  None :     1 : False :  True : Binary
+         ('K6b', 'EL', 7) :     0 :  None :     1 : False :  True : Binary
+         ('K6b', 'EL', 8) :     0 :  None :     1 : False :  True : Binary
+         ('K6b', 'EL', 9) :     0 :  None :     1 : False :  True : Binary
+        ('K6b', 'EL', 10) :     0 :  None :     1 : False :  True : Binary
+         ('K6b', 'GW', 1) :     0 :  None :     1 : False :  True : Binary
+         ('K6b', 'GW', 2) :     0 :  None :     1 : False :  True : Binary
+         ('K6b', 'GW', 3) :     0 :  None :     1 : False :  True : Binary
+         ('K6b', 'GW', 4) :     0 :  None :     1 : False :  True : Binary
+         ('K6b', 'GW', 5) :     0 :  None :     1 : False :  True : Binary
+         ('K6b', 'GW', 6) :     0 :  None :     1 : False :  True : Binary
+         ('K6b', 'GW', 7) :     0 :  None :     1 : False :  True : Binary
+         ('K6b', 'GW', 8) :     0 :  None :     1 : False :  True : Binary
+         ('K6b', 'GW', 9) :     0 :  None :     1 : False :  True : Binary
+        ('K6b', 'GW', 10) :     0 :  None :     1 : False :  True : Binary
+        ('K6b', 'GW', 11) :     0 :  None :     1 : False :  True : Binary
+        ('K6b', 'GW', 12) :     0 :  None :     1 : False :  True : Binary
+        ('K6b', 'GW', 13) :     0 :  None :     1 : False :  True : Binary
+        ('K6b', 'GW', 14) :     0 :  None :     1 : False :  True : Binary
+        ('K6b', 'GW', 15) :     0 :  None :     1 : False :  True : Binary
+        ('K6b', 'GW', 16) :     0 :  None :     1 : False :  True : Binary
+         ('K6c', 'EL', 1) :     0 :  None :     1 : False :  True : Binary
+         ('K6c', 'EL', 2) :     0 :  None :     1 : False :  True : Binary
+         ('K6c', 'EL', 3) :     0 :  None :     1 : False :  True : Binary
+         ('K6c', 'EL', 4) :     0 :  None :     1 : False :  True : Binary
+         ('K6c', 'EL', 5) :     0 :  None :     1 : False :  True : Binary
+         ('K6c', 'EL', 6) :     0 :  None :     1 : False :  True : Binary
+         ('K6c', 'EL', 7) :     0 :  None :     1 : False :  True : Binary
+         ('K6c', 'EL', 8) :     0 :  None :     1 : False :  True : Binary
+         ('K6c', 'EL', 9) :     0 :  None :     1 : False :  True : Binary
+        ('K6c', 'EL', 10) :     0 :  None :     1 : False :  True : Binary
+         ('K6c', 'GW', 1) :     0 :  None :     1 : False :  True : Binary
+         ('K6c', 'GW', 2) :     0 :  None :     1 : False :  True : Binary
+         ('K6c', 'GW', 3) :     0 :  None :     1 : False :  True : Binary
+         ('K6c', 'GW', 4) :     0 :  None :     1 : False :  True : Binary
+         ('K6c', 'GW', 5) :     0 :  None :     1 : False :  True : Binary
+         ('K6c', 'GW', 6) :     0 :  None :     1 : False :  True : Binary
+         ('K6c', 'GW', 7) :     0 :  None :     1 : False :  True : Binary
+         ('K6c', 'GW', 8) :     0 :  None :     1 : False :  True : Binary
+         ('K6c', 'GW', 9) :     0 :  None :     1 : False :  True : Binary
+        ('K6c', 'GW', 10) :     0 :  None :     1 : False :  True : Binary
+        ('K6c', 'GW', 11) :     0 :  None :     1 : False :  True : Binary
+        ('K6c', 'GW', 12) :     0 :  None :     1 : False :  True : Binary
+        ('K6c', 'GW', 13) :     0 :  None :     1 : False :  True : Binary
+        ('K6c', 'GW', 14) :     0 :  None :     1 : False :  True : Binary
+        ('K6c', 'GW', 15) :     0 :  None :     1 : False :  True : Binary
+        ('K6c', 'GW', 16) :     0 :  None :     1 : False :  True : Binary
+          ('K7', 'EL', 1) :     0 :  None :     1 : False :  True : Binary
+          ('K7', 'EL', 2) :     0 :  None :     1 : False :  True : Binary
+          ('K7', 'EL', 3) :     0 :  None :     1 : False :  True : Binary
+          ('K7', 'EL', 4) :     0 :  None :     1 : False :  True : Binary
+          ('K7', 'EL', 5) :     0 :  None :     1 : False :  True : Binary
+          ('K7', 'EL', 6) :     0 :  None :     1 : False :  True : Binary
+          ('K7', 'EL', 7) :     0 :  None :     1 : False :  True : Binary
+          ('K7', 'EL', 8) :     0 :  None :     1 : False :  True : Binary
+          ('K7', 'EL', 9) :     0 :  None :     1 : False :  True : Binary
+         ('K7', 'EL', 10) :     0 :  None :     1 : False :  True : Binary
+          ('K7', 'GW', 1) :     0 :  None :     1 : False :  True : Binary
+          ('K7', 'GW', 2) :     0 :  None :     1 : False :  True : Binary
+          ('K7', 'GW', 3) :     0 :  None :     1 : False :  True : Binary
+          ('K7', 'GW', 4) :     0 :  None :     1 : False :  True : Binary
+          ('K7', 'GW', 5) :     0 :  None :     1 : False :  True : Binary
+          ('K7', 'GW', 6) :     0 :  None :     1 : False :  True : Binary
+          ('K7', 'GW', 7) :     0 :  None :     1 : False :  True : Binary
+          ('K7', 'GW', 8) :     0 :  None :     1 : False :  True : Binary
+          ('K7', 'GW', 9) :     0 :  None :     1 : False :  True : Binary
+         ('K7', 'GW', 10) :     0 :  None :     1 : False :  True : Binary
+         ('K7', 'GW', 11) :     0 :  None :     1 : False :  True : Binary
+         ('K7', 'GW', 12) :     0 :  None :     1 : False :  True : Binary
+         ('K7', 'GW', 13) :     0 :  None :     1 : False :  True : Binary
+         ('K7', 'GW', 14) :     0 :  None :     1 : False :  True : Binary
+         ('K7', 'GW', 15) :     0 :  None :     1 : False :  True : Binary
+         ('K7', 'GW', 16) :     0 :  None :     1 : False :  True : Binary
+    al_task : Size=28, Index=al_task_index
+        Key           : Lower : Value : Upper : Fixed : Stale : Domain
+        ('K1a', 'EL') :     0 :  None :     1 : False :  True :  Reals
+        ('K1a', 'GW') :     0 :  None :     1 : False :  True :  Reals
+        ('K1b', 'EL') :     0 :  None :     1 : False :  True :  Reals
+        ('K1b', 'GW') :     0 :  None :     1 : False :  True :  Reals
+        ('K1c', 'EL') :     0 :  None :     1 : False :  True :  Reals
+        ('K1c', 'GW') :     0 :  None :     1 : False :  True :  Reals
+        ('K1d', 'EL') :     0 :  None :     1 : False :  True :  Reals
+        ('K1d', 'GW') :     0 :  None :     1 : False :  True :  Reals
+        ('K2a', 'EL') :     0 :  None :     1 : False :  True :  Reals
+        ('K2a', 'GW') :     0 :  None :     1 : False :  True :  Reals
+        ('K2b', 'EL') :     0 :  None :     1 : False :  True :  Reals
+        ('K2b', 'GW') :     0 :  None :     1 : False :  True :  Reals
+         ('K3', 'EL') :     0 :  None :     1 : False :  True :  Reals
+         ('K3', 'GW') :     0 :  None :     1 : False :  True :  Reals
+         ('K4', 'EL') :     0 :  None :     1 : False :  True :  Reals
+         ('K4', 'GW') :     0 :  None :     1 : False :  True :  Reals
+         ('K5', 'EL') :     0 :  None :     1 : False :  True :  Reals
+         ('K5', 'GW') :     0 :  None :     1 : False :  True :  Reals
+         ('K6', 'EL') :     0 :  None :     1 : False :  True :  Reals
+         ('K6', 'GW') :     0 :  None :     1 : False :  True :  Reals
+        ('K6a', 'EL') :     0 :  None :     1 : False :  True :  Reals
+        ('K6a', 'GW') :     0 :  None :     1 : False :  True :  Reals
+        ('K6b', 'EL') :     0 :  None :     1 : False :  True :  Reals
+        ('K6b', 'GW') :     0 :  None :     1 : False :  True :  Reals
+        ('K6c', 'EL') :     0 :  None :     1 : False :  True :  Reals
+        ('K6c', 'GW') :     0 :  None :     1 : False :  True :  Reals
+         ('K7', 'EL') :     0 :  None :     1 : False :  True :  Reals
+         ('K7', 'GW') :     0 :  None :     1 : False :  True :  Reals
+    cost_execution : Size=1, Index=None
+        Key  : Lower : Value : Upper : Fixed : Stale : Domain
+        None :  None :  None :  None : False :  True :  Reals
+    p_mutex : Size=2, Index=P_mutex
+        Key            : Lower : Value : Upper : Fixed : Stale : Domain
+        ('K1a', 'K2a') :     0 :  None :     1 : False :  True : Binary
+         ('K1a', 'K3') :     0 :  None :     1 : False :  True : Binary
+    p_prot : Size=3, Index=P_prot
+        Key            : Lower : Value : Upper : Fixed : Stale : Domain
+        ('K1a', 'K1b') :     0 :  None :     1 : False :  True : Binary
+        ('K1b', 'K1c') :     0 :  None :     1 : False :  True : Binary
+        ('K1c', 'K1d') :     0 :  None :     1 : False :  True : Binary
+    t_task_end : Size=14, Index=K
+        Key : Lower : Value : Upper : Fixed : Stale : Domain
+        K1a :  8.00 :  None : 16.00 : False :  True :  Reals
+        K1b :  8.00 :  None : 16.00 : False :  True :  Reals
+        K1c :  8.00 :  None : 16.00 : False :  True :  Reals
+        K1d :  8.00 :  None : 16.00 : False :  True :  Reals
+        K2a :  8.00 :  None : 16.00 : False :  True :  Reals
+        K2b :  8.00 :  None : 16.00 : False :  True :  Reals
+         K3 :  8.00 :  None : 16.00 : False :  True :  Reals
+         K4 :  8.00 :  None : 16.00 : False :  True :  Reals
+         K5 :  8.00 :  None : 16.00 : False :  True :  Reals
+         K6 :  8.00 :  None : 16.00 : False :  True :  Reals
+        K6a :  8.00 :  None : 16.00 : False :  True :  Reals
+        K6b :  8.00 :  None : 16.00 : False :  True :  Reals
+        K6c :  8.00 :  None : 16.00 : False :  True :  Reals
+         K7 :  8.00 :  None : 16.00 : False :  True :  Reals
+    t_task_presence_end : Size=14, Index=K
+        Key : Lower : Value : Upper : Fixed : Stale : Domain
+        K1a :  8.00 :  None : 16.00 : False :  True :  Reals
+        K1b :  8.00 :  None : 16.00 : False :  True :  Reals
+        K1c :  8.00 :  None : 16.00 : False :  True :  Reals
+        K1d :  8.00 :  None : 16.00 : False :  True :  Reals
+        K2a :  8.00 :  None : 16.00 : False :  True :  Reals
+        K2b :  8.00 :  None : 16.00 : False :  True :  Reals
+         K3 :  8.00 :  None : 16.00 : False :  True :  Reals
+         K4 :  8.00 :  None : 16.00 : False :  True :  Reals
+         K5 :  8.00 :  None : 16.00 : False :  True :  Reals
+         K6 :  8.00 :  None : 16.00 : False :  True :  Reals
+        K6a :  8.00 :  None : 16.00 : False :  True :  Reals
+        K6b :  8.00 :  None : 16.00 : False :  True :  Reals
+        K6c :  8.00 :  None : 16.00 : False :  True :  Reals
+         K7 :  8.00 :  None : 16.00 : False :  True :  Reals
+    t_task_presence_start : Size=14, Index=K
+        Key : Lower : Value : Upper : Fixed : Stale : Domain
+        K1a :  8.00 :  None : 16.00 : False :  True :  Reals
+        K1b :  8.00 :  None : 16.00 : False :  True :  Reals
+        K1c :  8.00 :  None : 16.00 : False :  True :  Reals
+        K1d :  8.00 :  None : 16.00 : False :  True :  Reals
+        K2a :  8.00 :  None : 16.00 : False :  True :  Reals
+        K2b :  8.00 :  None : 16.00 : False :  True :  Reals
+         K3 :  8.00 :  None : 16.00 : False :  True :  Reals
+         K4 :  8.00 :  None : 16.00 : False :  True :  Reals
+         K5 :  8.00 :  None : 16.00 : False :  True :  Reals
+         K6 :  8.00 :  None : 16.00 : False :  True :  Reals
+        K6a :  8.00 :  None : 16.00 : False :  True :  Reals
+        K6b :  8.00 :  None : 16.00 : False :  True :  Reals
+        K6c :  8.00 :  None : 16.00 : False :  True :  Reals
+         K7 :  8.00 :  None : 16.00 : False :  True :  Reals
+    t_task_start : Size=14, Index=K
+        Key : Lower : Value : Upper : Fixed : Stale : Domain
+        K1a :  8.00 :  None : 16.00 : False :  True :  Reals
+        K1b :  8.00 :  None : 16.00 : False :  True :  Reals
+        K1c :  8.00 :  None : 16.00 : False :  True :  Reals
+        K1d :  8.00 :  None : 16.00 : False :  True :  Reals
+        K2a :  8.00 :  None : 16.00 : False :  True :  Reals
+        K2b :  8.00 :  None : 16.00 : False :  True :  Reals
+         K3 :  8.00 :  None : 16.00 : False :  True :  Reals
+         K4 :  8.00 :  None : 16.00 : False :  True :  Reals
+         K5 :  8.00 :  None : 16.00 : False :  True :  Reals
+         K6 :  8.00 :  None : 16.00 : False :  True :  Reals
+        K6a :  8.00 :  None : 16.00 : False :  True :  Reals
+        K6b :  8.00 :  None : 16.00 : False :  True :  Reals
+        K6c :  8.00 :  None : 16.00 : False :  True :  Reals
+         K7 :  8.00 :  None : 16.00 : False :  True :  Reals
+
+10 Constraint Declarations
+    C03 : Size=24, Index=J_slots, Active=True
+        Key        : Lower : Body                                                                                                                                                                                                                                                                                                                                                                                                                                                  : Upper : Active
+         ('EL', 2) :  -Inf :                             al[K1a,EL,2] + al[K1b,EL,2] + al[K1c,EL,2] + al[K1d,EL,2] + al[K2a,EL,2] + al[K2b,EL,2] + al[K3,EL,2] + al[K4,EL,2] + al[K5,EL,2] + al[K6,EL,2] + al[K6a,EL,2] + al[K6b,EL,2] + al[K6c,EL,2] + al[K7,EL,2] - (al[K1a,EL,1] + al[K1b,EL,1] + al[K1c,EL,1] + al[K1d,EL,1] + al[K2a,EL,1] + al[K2b,EL,1] + al[K3,EL,1] + al[K4,EL,1] + al[K5,EL,1] + al[K6,EL,1] + al[K6a,EL,1] + al[K6b,EL,1] + al[K6c,EL,1] + al[K7,EL,1]) :   0.0 :   True
+         ('EL', 3) :  -Inf :                             al[K1a,EL,3] + al[K1b,EL,3] + al[K1c,EL,3] + al[K1d,EL,3] + al[K2a,EL,3] + al[K2b,EL,3] + al[K3,EL,3] + al[K4,EL,3] + al[K5,EL,3] + al[K6,EL,3] + al[K6a,EL,3] + al[K6b,EL,3] + al[K6c,EL,3] + al[K7,EL,3] - (al[K1a,EL,2] + al[K1b,EL,2] + al[K1c,EL,2] + al[K1d,EL,2] + al[K2a,EL,2] + al[K2b,EL,2] + al[K3,EL,2] + al[K4,EL,2] + al[K5,EL,2] + al[K6,EL,2] + al[K6a,EL,2] + al[K6b,EL,2] + al[K6c,EL,2] + al[K7,EL,2]) :   0.0 :   True
+         ('EL', 4) :  -Inf :                             al[K1a,EL,4] + al[K1b,EL,4] + al[K1c,EL,4] + al[K1d,EL,4] + al[K2a,EL,4] + al[K2b,EL,4] + al[K3,EL,4] + al[K4,EL,4] + al[K5,EL,4] + al[K6,EL,4] + al[K6a,EL,4] + al[K6b,EL,4] + al[K6c,EL,4] + al[K7,EL,4] - (al[K1a,EL,3] + al[K1b,EL,3] + al[K1c,EL,3] + al[K1d,EL,3] + al[K2a,EL,3] + al[K2b,EL,3] + al[K3,EL,3] + al[K4,EL,3] + al[K5,EL,3] + al[K6,EL,3] + al[K6a,EL,3] + al[K6b,EL,3] + al[K6c,EL,3] + al[K7,EL,3]) :   0.0 :   True
+         ('EL', 5) :  -Inf :                             al[K1a,EL,5] + al[K1b,EL,5] + al[K1c,EL,5] + al[K1d,EL,5] + al[K2a,EL,5] + al[K2b,EL,5] + al[K3,EL,5] + al[K4,EL,5] + al[K5,EL,5] + al[K6,EL,5] + al[K6a,EL,5] + al[K6b,EL,5] + al[K6c,EL,5] + al[K7,EL,5] - (al[K1a,EL,4] + al[K1b,EL,4] + al[K1c,EL,4] + al[K1d,EL,4] + al[K2a,EL,4] + al[K2b,EL,4] + al[K3,EL,4] + al[K4,EL,4] + al[K5,EL,4] + al[K6,EL,4] + al[K6a,EL,4] + al[K6b,EL,4] + al[K6c,EL,4] + al[K7,EL,4]) :   0.0 :   True
+         ('EL', 6) :  -Inf :                             al[K1a,EL,6] + al[K1b,EL,6] + al[K1c,EL,6] + al[K1d,EL,6] + al[K2a,EL,6] + al[K2b,EL,6] + al[K3,EL,6] + al[K4,EL,6] + al[K5,EL,6] + al[K6,EL,6] + al[K6a,EL,6] + al[K6b,EL,6] + al[K6c,EL,6] + al[K7,EL,6] - (al[K1a,EL,5] + al[K1b,EL,5] + al[K1c,EL,5] + al[K1d,EL,5] + al[K2a,EL,5] + al[K2b,EL,5] + al[K3,EL,5] + al[K4,EL,5] + al[K5,EL,5] + al[K6,EL,5] + al[K6a,EL,5] + al[K6b,EL,5] + al[K6c,EL,5] + al[K7,EL,5]) :   0.0 :   True
+         ('EL', 7) :  -Inf :                             al[K1a,EL,7] + al[K1b,EL,7] + al[K1c,EL,7] + al[K1d,EL,7] + al[K2a,EL,7] + al[K2b,EL,7] + al[K3,EL,7] + al[K4,EL,7] + al[K5,EL,7] + al[K6,EL,7] + al[K6a,EL,7] + al[K6b,EL,7] + al[K6c,EL,7] + al[K7,EL,7] - (al[K1a,EL,6] + al[K1b,EL,6] + al[K1c,EL,6] + al[K1d,EL,6] + al[K2a,EL,6] + al[K2b,EL,6] + al[K3,EL,6] + al[K4,EL,6] + al[K5,EL,6] + al[K6,EL,6] + al[K6a,EL,6] + al[K6b,EL,6] + al[K6c,EL,6] + al[K7,EL,6]) :   0.0 :   True
+         ('EL', 8) :  -Inf :                             al[K1a,EL,8] + al[K1b,EL,8] + al[K1c,EL,8] + al[K1d,EL,8] + al[K2a,EL,8] + al[K2b,EL,8] + al[K3,EL,8] + al[K4,EL,8] + al[K5,EL,8] + al[K6,EL,8] + al[K6a,EL,8] + al[K6b,EL,8] + al[K6c,EL,8] + al[K7,EL,8] - (al[K1a,EL,7] + al[K1b,EL,7] + al[K1c,EL,7] + al[K1d,EL,7] + al[K2a,EL,7] + al[K2b,EL,7] + al[K3,EL,7] + al[K4,EL,7] + al[K5,EL,7] + al[K6,EL,7] + al[K6a,EL,7] + al[K6b,EL,7] + al[K6c,EL,7] + al[K7,EL,7]) :   0.0 :   True
+         ('EL', 9) :  -Inf :                             al[K1a,EL,9] + al[K1b,EL,9] + al[K1c,EL,9] + al[K1d,EL,9] + al[K2a,EL,9] + al[K2b,EL,9] + al[K3,EL,9] + al[K4,EL,9] + al[K5,EL,9] + al[K6,EL,9] + al[K6a,EL,9] + al[K6b,EL,9] + al[K6c,EL,9] + al[K7,EL,9] - (al[K1a,EL,8] + al[K1b,EL,8] + al[K1c,EL,8] + al[K1d,EL,8] + al[K2a,EL,8] + al[K2b,EL,8] + al[K3,EL,8] + al[K4,EL,8] + al[K5,EL,8] + al[K6,EL,8] + al[K6a,EL,8] + al[K6b,EL,8] + al[K6c,EL,8] + al[K7,EL,8]) :   0.0 :   True
+        ('EL', 10) :  -Inf :               al[K1a,EL,10] + al[K1b,EL,10] + al[K1c,EL,10] + al[K1d,EL,10] + al[K2a,EL,10] + al[K2b,EL,10] + al[K3,EL,10] + al[K4,EL,10] + al[K5,EL,10] + al[K6,EL,10] + al[K6a,EL,10] + al[K6b,EL,10] + al[K6c,EL,10] + al[K7,EL,10] - (al[K1a,EL,9] + al[K1b,EL,9] + al[K1c,EL,9] + al[K1d,EL,9] + al[K2a,EL,9] + al[K2b,EL,9] + al[K3,EL,9] + al[K4,EL,9] + al[K5,EL,9] + al[K6,EL,9] + al[K6a,EL,9] + al[K6b,EL,9] + al[K6c,EL,9] + al[K7,EL,9]) :   0.0 :   True
+         ('GW', 2) :  -Inf :                             al[K1a,GW,2] + al[K1b,GW,2] + al[K1c,GW,2] + al[K1d,GW,2] + al[K2a,GW,2] + al[K2b,GW,2] + al[K3,GW,2] + al[K4,GW,2] + al[K5,GW,2] + al[K6,GW,2] + al[K6a,GW,2] + al[K6b,GW,2] + al[K6c,GW,2] + al[K7,GW,2] - (al[K1a,GW,1] + al[K1b,GW,1] + al[K1c,GW,1] + al[K1d,GW,1] + al[K2a,GW,1] + al[K2b,GW,1] + al[K3,GW,1] + al[K4,GW,1] + al[K5,GW,1] + al[K6,GW,1] + al[K6a,GW,1] + al[K6b,GW,1] + al[K6c,GW,1] + al[K7,GW,1]) :   0.0 :   True
+         ('GW', 3) :  -Inf :                             al[K1a,GW,3] + al[K1b,GW,3] + al[K1c,GW,3] + al[K1d,GW,3] + al[K2a,GW,3] + al[K2b,GW,3] + al[K3,GW,3] + al[K4,GW,3] + al[K5,GW,3] + al[K6,GW,3] + al[K6a,GW,3] + al[K6b,GW,3] + al[K6c,GW,3] + al[K7,GW,3] - (al[K1a,GW,2] + al[K1b,GW,2] + al[K1c,GW,2] + al[K1d,GW,2] + al[K2a,GW,2] + al[K2b,GW,2] + al[K3,GW,2] + al[K4,GW,2] + al[K5,GW,2] + al[K6,GW,2] + al[K6a,GW,2] + al[K6b,GW,2] + al[K6c,GW,2] + al[K7,GW,2]) :   0.0 :   True
+         ('GW', 4) :  -Inf :                             al[K1a,GW,4] + al[K1b,GW,4] + al[K1c,GW,4] + al[K1d,GW,4] + al[K2a,GW,4] + al[K2b,GW,4] + al[K3,GW,4] + al[K4,GW,4] + al[K5,GW,4] + al[K6,GW,4] + al[K6a,GW,4] + al[K6b,GW,4] + al[K6c,GW,4] + al[K7,GW,4] - (al[K1a,GW,3] + al[K1b,GW,3] + al[K1c,GW,3] + al[K1d,GW,3] + al[K2a,GW,3] + al[K2b,GW,3] + al[K3,GW,3] + al[K4,GW,3] + al[K5,GW,3] + al[K6,GW,3] + al[K6a,GW,3] + al[K6b,GW,3] + al[K6c,GW,3] + al[K7,GW,3]) :   0.0 :   True
+         ('GW', 5) :  -Inf :                             al[K1a,GW,5] + al[K1b,GW,5] + al[K1c,GW,5] + al[K1d,GW,5] + al[K2a,GW,5] + al[K2b,GW,5] + al[K3,GW,5] + al[K4,GW,5] + al[K5,GW,5] + al[K6,GW,5] + al[K6a,GW,5] + al[K6b,GW,5] + al[K6c,GW,5] + al[K7,GW,5] - (al[K1a,GW,4] + al[K1b,GW,4] + al[K1c,GW,4] + al[K1d,GW,4] + al[K2a,GW,4] + al[K2b,GW,4] + al[K3,GW,4] + al[K4,GW,4] + al[K5,GW,4] + al[K6,GW,4] + al[K6a,GW,4] + al[K6b,GW,4] + al[K6c,GW,4] + al[K7,GW,4]) :   0.0 :   True
+         ('GW', 6) :  -Inf :                             al[K1a,GW,6] + al[K1b,GW,6] + al[K1c,GW,6] + al[K1d,GW,6] + al[K2a,GW,6] + al[K2b,GW,6] + al[K3,GW,6] + al[K4,GW,6] + al[K5,GW,6] + al[K6,GW,6] + al[K6a,GW,6] + al[K6b,GW,6] + al[K6c,GW,6] + al[K7,GW,6] - (al[K1a,GW,5] + al[K1b,GW,5] + al[K1c,GW,5] + al[K1d,GW,5] + al[K2a,GW,5] + al[K2b,GW,5] + al[K3,GW,5] + al[K4,GW,5] + al[K5,GW,5] + al[K6,GW,5] + al[K6a,GW,5] + al[K6b,GW,5] + al[K6c,GW,5] + al[K7,GW,5]) :   0.0 :   True
+         ('GW', 7) :  -Inf :                             al[K1a,GW,7] + al[K1b,GW,7] + al[K1c,GW,7] + al[K1d,GW,7] + al[K2a,GW,7] + al[K2b,GW,7] + al[K3,GW,7] + al[K4,GW,7] + al[K5,GW,7] + al[K6,GW,7] + al[K6a,GW,7] + al[K6b,GW,7] + al[K6c,GW,7] + al[K7,GW,7] - (al[K1a,GW,6] + al[K1b,GW,6] + al[K1c,GW,6] + al[K1d,GW,6] + al[K2a,GW,6] + al[K2b,GW,6] + al[K3,GW,6] + al[K4,GW,6] + al[K5,GW,6] + al[K6,GW,6] + al[K6a,GW,6] + al[K6b,GW,6] + al[K6c,GW,6] + al[K7,GW,6]) :   0.0 :   True
+         ('GW', 8) :  -Inf :                             al[K1a,GW,8] + al[K1b,GW,8] + al[K1c,GW,8] + al[K1d,GW,8] + al[K2a,GW,8] + al[K2b,GW,8] + al[K3,GW,8] + al[K4,GW,8] + al[K5,GW,8] + al[K6,GW,8] + al[K6a,GW,8] + al[K6b,GW,8] + al[K6c,GW,8] + al[K7,GW,8] - (al[K1a,GW,7] + al[K1b,GW,7] + al[K1c,GW,7] + al[K1d,GW,7] + al[K2a,GW,7] + al[K2b,GW,7] + al[K3,GW,7] + al[K4,GW,7] + al[K5,GW,7] + al[K6,GW,7] + al[K6a,GW,7] + al[K6b,GW,7] + al[K6c,GW,7] + al[K7,GW,7]) :   0.0 :   True
+         ('GW', 9) :  -Inf :                             al[K1a,GW,9] + al[K1b,GW,9] + al[K1c,GW,9] + al[K1d,GW,9] + al[K2a,GW,9] + al[K2b,GW,9] + al[K3,GW,9] + al[K4,GW,9] + al[K5,GW,9] + al[K6,GW,9] + al[K6a,GW,9] + al[K6b,GW,9] + al[K6c,GW,9] + al[K7,GW,9] - (al[K1a,GW,8] + al[K1b,GW,8] + al[K1c,GW,8] + al[K1d,GW,8] + al[K2a,GW,8] + al[K2b,GW,8] + al[K3,GW,8] + al[K4,GW,8] + al[K5,GW,8] + al[K6,GW,8] + al[K6a,GW,8] + al[K6b,GW,8] + al[K6c,GW,8] + al[K7,GW,8]) :   0.0 :   True
+        ('GW', 10) :  -Inf :               al[K1a,GW,10] + al[K1b,GW,10] + al[K1c,GW,10] + al[K1d,GW,10] + al[K2a,GW,10] + al[K2b,GW,10] + al[K3,GW,10] + al[K4,GW,10] + al[K5,GW,10] + al[K6,GW,10] + al[K6a,GW,10] + al[K6b,GW,10] + al[K6c,GW,10] + al[K7,GW,10] - (al[K1a,GW,9] + al[K1b,GW,9] + al[K1c,GW,9] + al[K1d,GW,9] + al[K2a,GW,9] + al[K2b,GW,9] + al[K3,GW,9] + al[K4,GW,9] + al[K5,GW,9] + al[K6,GW,9] + al[K6a,GW,9] + al[K6b,GW,9] + al[K6c,GW,9] + al[K7,GW,9]) :   0.0 :   True
+        ('GW', 11) :  -Inf : al[K1a,GW,11] + al[K1b,GW,11] + al[K1c,GW,11] + al[K1d,GW,11] + al[K2a,GW,11] + al[K2b,GW,11] + al[K3,GW,11] + al[K4,GW,11] + al[K5,GW,11] + al[K6,GW,11] + al[K6a,GW,11] + al[K6b,GW,11] + al[K6c,GW,11] + al[K7,GW,11] - (al[K1a,GW,10] + al[K1b,GW,10] + al[K1c,GW,10] + al[K1d,GW,10] + al[K2a,GW,10] + al[K2b,GW,10] + al[K3,GW,10] + al[K4,GW,10] + al[K5,GW,10] + al[K6,GW,10] + al[K6a,GW,10] + al[K6b,GW,10] + al[K6c,GW,10] + al[K7,GW,10]) :   0.0 :   True
+        ('GW', 12) :  -Inf : al[K1a,GW,12] + al[K1b,GW,12] + al[K1c,GW,12] + al[K1d,GW,12] + al[K2a,GW,12] + al[K2b,GW,12] + al[K3,GW,12] + al[K4,GW,12] + al[K5,GW,12] + al[K6,GW,12] + al[K6a,GW,12] + al[K6b,GW,12] + al[K6c,GW,12] + al[K7,GW,12] - (al[K1a,GW,11] + al[K1b,GW,11] + al[K1c,GW,11] + al[K1d,GW,11] + al[K2a,GW,11] + al[K2b,GW,11] + al[K3,GW,11] + al[K4,GW,11] + al[K5,GW,11] + al[K6,GW,11] + al[K6a,GW,11] + al[K6b,GW,11] + al[K6c,GW,11] + al[K7,GW,11]) :   0.0 :   True
+        ('GW', 13) :  -Inf : al[K1a,GW,13] + al[K1b,GW,13] + al[K1c,GW,13] + al[K1d,GW,13] + al[K2a,GW,13] + al[K2b,GW,13] + al[K3,GW,13] + al[K4,GW,13] + al[K5,GW,13] + al[K6,GW,13] + al[K6a,GW,13] + al[K6b,GW,13] + al[K6c,GW,13] + al[K7,GW,13] - (al[K1a,GW,12] + al[K1b,GW,12] + al[K1c,GW,12] + al[K1d,GW,12] + al[K2a,GW,12] + al[K2b,GW,12] + al[K3,GW,12] + al[K4,GW,12] + al[K5,GW,12] + al[K6,GW,12] + al[K6a,GW,12] + al[K6b,GW,12] + al[K6c,GW,12] + al[K7,GW,12]) :   0.0 :   True
+        ('GW', 14) :  -Inf : al[K1a,GW,14] + al[K1b,GW,14] + al[K1c,GW,14] + al[K1d,GW,14] + al[K2a,GW,14] + al[K2b,GW,14] + al[K3,GW,14] + al[K4,GW,14] + al[K5,GW,14] + al[K6,GW,14] + al[K6a,GW,14] + al[K6b,GW,14] + al[K6c,GW,14] + al[K7,GW,14] - (al[K1a,GW,13] + al[K1b,GW,13] + al[K1c,GW,13] + al[K1d,GW,13] + al[K2a,GW,13] + al[K2b,GW,13] + al[K3,GW,13] + al[K4,GW,13] + al[K5,GW,13] + al[K6,GW,13] + al[K6a,GW,13] + al[K6b,GW,13] + al[K6c,GW,13] + al[K7,GW,13]) :   0.0 :   True
+        ('GW', 15) :  -Inf : al[K1a,GW,15] + al[K1b,GW,15] + al[K1c,GW,15] + al[K1d,GW,15] + al[K2a,GW,15] + al[K2b,GW,15] + al[K3,GW,15] + al[K4,GW,15] + al[K5,GW,15] + al[K6,GW,15] + al[K6a,GW,15] + al[K6b,GW,15] + al[K6c,GW,15] + al[K7,GW,15] - (al[K1a,GW,14] + al[K1b,GW,14] + al[K1c,GW,14] + al[K1d,GW,14] + al[K2a,GW,14] + al[K2b,GW,14] + al[K3,GW,14] + al[K4,GW,14] + al[K5,GW,14] + al[K6,GW,14] + al[K6a,GW,14] + al[K6b,GW,14] + al[K6c,GW,14] + al[K7,GW,14]) :   0.0 :   True
+        ('GW', 16) :  -Inf : al[K1a,GW,16] + al[K1b,GW,16] + al[K1c,GW,16] + al[K1d,GW,16] + al[K2a,GW,16] + al[K2b,GW,16] + al[K3,GW,16] + al[K4,GW,16] + al[K5,GW,16] + al[K6,GW,16] + al[K6a,GW,16] + al[K6b,GW,16] + al[K6c,GW,16] + al[K7,GW,16] - (al[K1a,GW,15] + al[K1b,GW,15] + al[K1c,GW,15] + al[K1d,GW,15] + al[K2a,GW,15] + al[K2b,GW,15] + al[K3,GW,15] + al[K4,GW,15] + al[K5,GW,15] + al[K6,GW,15] + al[K6a,GW,15] + al[K6b,GW,15] + al[K6c,GW,15] + al[K7,GW,15]) :   0.0 :   True
+    C30 : Size=7, Index=P_prec, Active=True
+        Key            : Lower : Body                                : Upper : Active
+        ('K1a', 'K1b') :  -Inf : t_task_end[K1a] - t_task_start[K1b] :   0.0 :   True
+        ('K1b', 'K1c') :  -Inf : t_task_end[K1b] - t_task_start[K1c] :   0.0 :   True
+        ('K1c', 'K1d') :  -Inf : t_task_end[K1c] - t_task_start[K1d] :   0.0 :   True
+          ('K3', 'K4') :  -Inf :   t_task_end[K3] - t_task_start[K4] :   0.0 :   True
+          ('K4', 'K5') :  -Inf :   t_task_end[K4] - t_task_start[K5] :   0.0 :   True
+          ('K5', 'K6') :  -Inf :   t_task_end[K5] - t_task_start[K6] :   0.0 :   True
+          ('K6', 'K7') :  -Inf :   t_task_end[K6] - t_task_start[K7] :   0.0 :   True
+    C31 : Size=4, Index=C31_index, Active=True
+        Key                : Lower : Body                            : Upper : Active
+        ('K3', 'K4', 'EL') :   0.0 : al_task[K3,EL] - al_task[K4,EL] :   0.0 :   True
+        ('K3', 'K4', 'GW') :   0.0 : al_task[K3,GW] - al_task[K4,GW] :   0.0 :   True
+        ('K6', 'K7', 'EL') :   0.0 : al_task[K6,EL] - al_task[K7,EL] :   0.0 :   True
+        ('K6', 'K7', 'GW') :   0.0 : al_task[K6,GW] - al_task[K7,GW] :   0.0 :   True
+    C32 : Size=6, Index=C32_index, Active=True
+        Key                  : Lower : Body                                                                        : Upper : Active
+        ('K1a', 'K1b', 'EL') :  -Inf : t_task_presence_start[K1b] - t_task_presence_end[K1a] - 5.0*p_prot[K1a,K1b] :   0.0 :   True
+        ('K1a', 'K1b', 'GW') :  -Inf : t_task_presence_start[K1b] - t_task_presence_end[K1a] - 8.0*p_prot[K1a,K1b] :   0.0 :   True
+        ('K1b', 'K1c', 'EL') :  -Inf : t_task_presence_start[K1c] - t_task_presence_end[K1b] - 5.0*p_prot[K1b,K1c] :   0.0 :   True
+        ('K1b', 'K1c', 'GW') :  -Inf : t_task_presence_start[K1c] - t_task_presence_end[K1b] - 8.0*p_prot[K1b,K1c] :   0.0 :   True
+        ('K1c', 'K1d', 'EL') :  -Inf : t_task_presence_start[K1d] - t_task_presence_end[K1c] - 5.0*p_prot[K1c,K1d] :   0.0 :   True
+        ('K1c', 'K1d', 'GW') :  -Inf : t_task_presence_start[K1d] - t_task_presence_end[K1c] - 8.0*p_prot[K1c,K1d] :   0.0 :   True
+    C37 : Size=4, Index=C37_index, Active=True
+        Key                  : Lower : Body                                                                : Upper : Active
+        ('K1a', 'K2a', 'EL') :  -Inf : -5.0*(1 - p_mutex[K1a,K2a]) - (t_task_start[K2a] - t_task_end[K1a]) :   0.0 :   True
+        ('K1a', 'K2a', 'GW') :  -Inf : -8.0*(1 - p_mutex[K1a,K2a]) - (t_task_start[K2a] - t_task_end[K1a]) :   0.0 :   True
+         ('K1a', 'K3', 'EL') :  -Inf :   -5.0*(1 - p_mutex[K1a,K3]) - (t_task_start[K3] - t_task_end[K1a]) :   0.0 :   True
+         ('K1a', 'K3', 'GW') :  -Inf :   -8.0*(1 - p_mutex[K1a,K3]) - (t_task_start[K3] - t_task_end[K1a]) :   0.0 :   True
+    C38 : Size=4, Index=C38_index, Active=True
+        Key                  : Lower : Body                                                          : Upper : Active
+        ('K1a', 'K2a', 'EL') :  -Inf : -5.0*p_mutex[K1a,K2a] - (t_task_start[K1a] - t_task_end[K2a]) :   0.0 :   True
+        ('K1a', 'K2a', 'GW') :  -Inf : -8.0*p_mutex[K1a,K2a] - (t_task_start[K1a] - t_task_end[K2a]) :   0.0 :   True
+         ('K1a', 'K3', 'EL') :  -Inf :   -5.0*p_mutex[K1a,K3] - (t_task_start[K1a] - t_task_end[K3]) :   0.0 :   True
+         ('K1a', 'K3', 'GW') :  -Inf :   -8.0*p_mutex[K1a,K3] - (t_task_start[K1a] - t_task_end[K3]) :   0.0 :   True
+    C39 : Size=3, Index=P_parallel, Active=True
+        Key           : Lower : Body                                 : Upper : Active
+        ('K6', 'K6a') :   0.0 : t_task_start[K6] - t_task_start[K6a] :   0.0 :   True
+        ('K6', 'K6b') :   0.0 : t_task_start[K6] - t_task_start[K6b] :   0.0 :   True
+        ('K6', 'K6c') :   0.0 : t_task_start[K6] - t_task_start[K6c] :   0.0 :   True
+    C40 : Size=3, Index=P_parallel, Active=True
+        Key           : Lower : Body                             : Upper : Active
+        ('K6', 'K6a') :   0.0 : t_task_end[K6] - t_task_end[K6a] :   0.0 :   True
+        ('K6', 'K6b') :   0.0 : t_task_end[K6] - t_task_end[K6b] :   0.0 :   True
+        ('K6', 'K6c') :   0.0 : t_task_end[K6] - t_task_end[K6c] :   0.0 :   True
+    c01 : Size=28, Index=c01_index, Active=True
+        Key           : Lower : Body            : Upper : Active
+        ('K1a', 'EL') :   0.0 : al_task[K1a,EL] :   0.0 :   True
+        ('K1a', 'GW') :   0.0 : al_task[K1a,GW] :   0.0 :   True
+        ('K1b', 'EL') :   0.0 : al_task[K1b,EL] :   0.0 :   True
+        ('K1b', 'GW') :   0.0 : al_task[K1b,GW] :   0.0 :   True
+        ('K1c', 'EL') :   0.0 : al_task[K1c,EL] :   0.0 :   True
+        ('K1c', 'GW') :   0.0 : al_task[K1c,GW] :   0.0 :   True
+        ('K1d', 'EL') :   0.0 : al_task[K1d,EL] :   0.0 :   True
+        ('K1d', 'GW') :   0.0 : al_task[K1d,GW] :   0.0 :   True
+        ('K2a', 'EL') :   0.0 : al_task[K2a,EL] :   0.0 :   True
+        ('K2a', 'GW') :   0.0 : al_task[K2a,GW] :   0.0 :   True
+        ('K2b', 'EL') :   0.0 : al_task[K2b,EL] :   0.0 :   True
+        ('K2b', 'GW') :   0.0 : al_task[K2b,GW] :   0.0 :   True
+         ('K3', 'EL') :   0.0 :  al_task[K3,EL] :   0.0 :   True
+         ('K3', 'GW') :   0.0 :  al_task[K3,GW] :   0.0 :   True
+         ('K4', 'EL') :   0.0 :  al_task[K4,EL] :   0.0 :   True
+         ('K4', 'GW') :   0.0 :  al_task[K4,GW] :   0.0 :   True
+         ('K5', 'EL') :   0.0 :  al_task[K5,EL] :   0.0 :   True
+         ('K5', 'GW') :   0.0 :  al_task[K5,GW] :   0.0 :   True
+         ('K6', 'EL') :   0.0 :  al_task[K6,EL] :   0.0 :   True
+         ('K6', 'GW') :   0.0 :  al_task[K6,GW] :   0.0 :   True
+        ('K6a', 'EL') :   0.0 : al_task[K6a,EL] :   0.0 :   True
+        ('K6a', 'GW') :   0.0 : al_task[K6a,GW] :   0.0 :   True
+        ('K6b', 'EL') :   0.0 : al_task[K6b,EL] :   0.0 :   True
+        ('K6b', 'GW') :   0.0 : al_task[K6b,GW] :   0.0 :   True
+        ('K6c', 'EL') :   0.0 : al_task[K6c,EL] :   0.0 :   True
+        ('K6c', 'GW') :   0.0 : al_task[K6c,GW] :   0.0 :   True
+         ('K7', 'EL') :   0.0 :  al_task[K7,EL] :   0.0 :   True
+         ('K7', 'GW') :   0.0 :  al_task[K7,GW] :   0.0 :   True
+    c02 : Size=14, Index=K, Active=True
+        Key : Lower : Body                              : Upper : Active
+        K1a :   1.0 : al_task[K1a,GW] + al_task[K1a,EL] :   1.0 :   True
+        K1b :   1.0 : al_task[K1b,GW] + al_task[K1b,EL] :   1.0 :   True
+        K1c :   1.0 : al_task[K1c,GW] + al_task[K1c,EL] :   1.0 :   True
+        K1d :   1.0 : al_task[K1d,GW] + al_task[K1d,EL] :   1.0 :   True
+        K2a :   1.0 : al_task[K2a,GW] + al_task[K2a,EL] :   1.0 :   True
+        K2b :   1.0 : al_task[K2b,GW] + al_task[K2b,EL] :   1.0 :   True
+         K3 :   1.0 :   al_task[K3,GW] + al_task[K3,EL] :   1.0 :   True
+         K4 :   1.0 :   al_task[K4,GW] + al_task[K4,EL] :   1.0 :   True
+         K5 :   1.0 :   al_task[K5,GW] + al_task[K5,EL] :   1.0 :   True
+         K6 :   1.0 :   al_task[K6,GW] + al_task[K6,EL] :   1.0 :   True
+        K6a :   1.0 : al_task[K6a,GW] + al_task[K6a,EL] :   1.0 :   True
+        K6b :   1.0 : al_task[K6b,GW] + al_task[K6b,EL] :   1.0 :   True
+        K6c :   1.0 : al_task[K6c,GW] + al_task[K6c,EL] :   1.0 :   True
+         K7 :   1.0 :   al_task[K7,GW] + al_task[K7,EL] :   1.0 :   True
+
+46 Declarations: RelationTypes K M P_UNIVERSE P_ALL_domain P_ALL P_free P_same P_prot P_mutex P_parallel P_prec U_exec_index U_exec N_crafter M_Count J_slots T_day_start T_day_end U_WORKDAY al_index al al_task_index al_task p_prot p_mutex cost_execution t_task_start t_task_end t_task_presence_start t_task_presence_end c01_index c01 c02 C03 C30 C31_index C31 C32_index C32 C37_index C37 C38_index C38 C39 C40
